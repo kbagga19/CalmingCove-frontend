@@ -10,7 +10,8 @@ import tasks from "../../assets/complete.svg";
 import sleep from "../../assets/sleeping.svg";
 import reports from "../../assets/reports.svg";
 import {formatISO9075, subDays} from "date-fns";
-import axiosapi from '../../services/axiosapi'
+import axiosapi from '../../services/axiosapi';
+import SubscriptionSection from '../SubscriptionSection/SubscriptionSection';
 
 import {
   XAxis,
@@ -38,9 +39,9 @@ function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
   const [sleepData, setSleepData] = useState({});
+  const [reportData, setReportData] = useState(null);
   
   // Fetch Moods Average
-
   const fetchData = () => {
     if (localStorage.getItem('id') != null) {
       try {
@@ -66,20 +67,26 @@ function Dashboard() {
 
   const fetchTasksCompleted = async () => {
     if (localStorage.getItem('id') != null) {
-      const response = await axiosapi.get(`/extra/tasksCompleted/${localStorage.getItem('id')}`,{ 
-        crossDomain: true, 
-        headers: { 'Content-Type':'application/json', 
-          Accept: "application/json", 
-          "Access-Control-Allow-Origin": "*", 
-          'Authorization': `Bearer ${localStorage.getItem('token')}` 
-        } 
-      })
-      if (response.status === 200) {
-        const data = await response.data
-        setTasksCompleted(data.filter((value) => value === true).length) 
-      }
+      try {
+        const response = await axiosapi.get(`/extra/tasksCompleted/${localStorage.getItem('id')}`,{ 
+          crossDomain: true, 
+          headers: { 'Content-Type':'application/json', 
+            Accept: "application/json", 
+            "Access-Control-Allow-Origin": "*", 
+            'Authorization': `Bearer ${localStorage.getItem('token')}` 
+          } 
+        })
+        if (response.status === 200) {
+          const data = await response.data
+          setTasksCompleted(data.filter((value) => value === true).length) 
+        } else {
+          console.log(response)
+        }
+      } catch (error) {
+        console.log(error)
+      } 
     } else {
-        setTasksCompleted(0);
+          setTasksCompleted(0);
     }
   }
 
@@ -87,22 +94,48 @@ function Dashboard() {
 
   const fetchSleep = async () => {
     if (localStorage.getItem('id') != null) {
-      const response = await axiosapi.get(`/extra/getSleep/${localStorage.getItem('id')}`, { 
-        crossDomain: true, 
-        headers: { 'Content-Type':'application/json', 
-          Accept: "application/json", 
-          "Access-Control-Allow-Origin": "*", 
-          'Authorization': `Bearer ${localStorage.getItem('token')}` 
-        } 
-      })
-      if (response.status === 200) {
-        const data = await response.data
-        setSleepData(data) 
+      try {
+        const response = await axiosapi.get(`/extra/getSleep/${localStorage.getItem('id')}`, { 
+          crossDomain: true, 
+          headers: { 'Content-Type':'application/json', 
+            Accept: "application/json", 
+            "Access-Control-Allow-Origin": "*", 
+            'Authorization': `Bearer ${localStorage.getItem('token')}` 
+          } 
+        })
+        if (response.status === 200) {
+          const data = await response.data
+          setSleepData(data) 
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+
+  const fetchReports = async () => {
+    if (localStorage.getItem('id') != null) {
+      try {
+        const response = await axiosapi.get(`/extra/getTotalReports/${localStorage.getItem('id')}`, { 
+          crossDomain: true, 
+          headers: { 'Content-Type':'application/json', 
+            Accept: "application/json", 
+            "Access-Control-Allow-Origin": "*", 
+            'Authorization': `Bearer ${localStorage.getItem('token')}` 
+          } 
+        })
+        if (response.status === 200) {
+          const data = await response.data
+          setReportData(data) 
+        }
+      } catch (error) {
+        console.log(error)
       }
     }
   }
 
   useEffect(() => { 
+    fetchReports();
     fetchData();
     fetchTasksCompleted();
     fetchSleep();
@@ -148,6 +181,7 @@ function Dashboard() {
             <div className="spinner"></div>
         </div>) : (
         <main className={classes["main-container"]}>
+         
           <div className={classes["main-title"]}>
             <h3>Dashboard</h3>
             <h6>{formattedDate}</h6>
@@ -192,7 +226,7 @@ function Dashboard() {
                 <img src={reports} alt="tick-icon"  className={classes["card_icon"]} />
               </div>
               <div className={classes.cardContent}>
-                <h5>12 Reports</h5>
+                <h5>{reportData === null ? 0 : reportData} Reports</h5>
                 <h6>Tests</h6>
               </div>
             </div>
@@ -232,8 +266,8 @@ function Dashboard() {
             {/* Map Locations */}
 
             <Map/>  
-          </main>
-      )}
+          </main>)
+      }
     </>
   );
 }

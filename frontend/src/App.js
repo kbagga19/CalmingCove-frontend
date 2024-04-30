@@ -25,7 +25,6 @@ import TherapistsPage from "./pages/TherapistsPage/TherapistsPage";
 function App() {
   return (
     <div className="container">
-    <Router>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/categories" element={<Categories />} />
@@ -50,7 +49,6 @@ function App() {
           <Route path="/success" element={<Success />}></Route>
         </Route>
       </Routes>
-      </Router>
     </div>
   );
 }

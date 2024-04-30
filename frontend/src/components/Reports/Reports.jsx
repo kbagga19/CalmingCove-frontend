@@ -51,7 +51,10 @@ function Reports() {
 
     return (
         <div className='mainReportsPage'>
-            <h3>Your Reports</h3>
+          <h3>Your Reports</h3>
+          {reports.length === 0 ? (
+            <h5>Take the test to view reports!</h5>
+          ) : (
             <div className='reportBox'>
                 {pdf.map(({ blob, fileName }, index) => (
                     <div className='reportInnerBox' key={index}>
@@ -62,6 +65,9 @@ function Reports() {
                     </div>
                 ))}
             </div>  
+          )
+            
+          }
         </div>
     )
 }

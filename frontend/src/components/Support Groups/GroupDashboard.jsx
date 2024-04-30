@@ -39,11 +39,34 @@ const GroupDashboard = ({ groupId }) => {
             buttons: true,
             dangerMode: true,
         })
-        .then((willDelete) => {
+        .then(async (willDelete) => {
             if (willDelete) {
-                swal("Group left successfully!", {
-                    icon: "success",
-                });
+                try {
+                    const response = await axiosapi.put(`/extra/addGroup/${localStorage.getItem('id')}`, JSON.parse(groupId), {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                            'opType': "leave"
+                        }
+                    }).then(async (res) => {
+                        console.log(res);
+                        await axiosapi.put(`/groups/updateGroupMembers/${JSON.parse(groupId)}`, {}, {
+                            headers: {
+                                "Access-Control-Allow-Origin": "*",
+                                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                                'opType': "leave"
+                            },
+                        }).then(() => {
+                            console.log("hi")
+                            swal("Group left successfully!", {
+                                icon: "success",
+                            });
+                        })
+                    })
+                } catch (error) {
+                    console.log(error)
+                }
+                
             } else {
                 swal("Thanks for not leaving us!");
             }

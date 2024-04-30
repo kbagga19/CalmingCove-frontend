@@ -13,10 +13,10 @@ const SubscriptionSection = () => {
             <div className="planinner">
               <span className="planpricing">
                 <span>
-                  ₹0 <small>/ m</small>
+                  ₹1000 <small>/ m</small>
                 </span>
               </span>
-              <p className="plantitle">Free Membership</p>
+              <p className="plantitle">Silver Membership</p>
               <p className="planinfo">
                 Join for free and get access to feautres like:{" "}
               </p>
@@ -76,7 +76,7 @@ const SubscriptionSection = () => {
                 </li>
               </ul>
               <div className="planaction">
-                <Link to={{ pathname: `/success` }} className="planbutton">
+                <Link to={{ pathname: `/payment/${1000}` }} className="planbutton">
                   Choose plan
                 </Link>
               </div>
@@ -90,7 +90,7 @@ const SubscriptionSection = () => {
                   ₹2000 <small>/ m</small>
                 </span>
               </span>
-              <p className="plantitle"> Basic Membership</p>
+              <p className="plantitle">Gold Membership</p>
               <p className="planinfo">
                 Upgrade for personalized plans and progress tracking.
               </p>
@@ -183,7 +183,7 @@ const SubscriptionSection = () => {
                   ₹5000 <small>/ m</small>
                 </span>
               </span>
-              <p className="plantitle">Premium Membership</p>
+              <p className="plantitle">Platinum Membership</p>
               <p className="planinfo">
                 Unlock everything: personalized counseling, tailored plans,
                 progress tracking.

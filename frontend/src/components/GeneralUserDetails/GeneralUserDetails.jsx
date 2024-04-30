@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import './GeneralUserDetails.css';
 import {AiOutlineArrowRight} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
@@ -54,10 +54,35 @@ function GeneralUserDetails() {
                     icon: "success",
                     button: "Ok",
                 });
-                navigate("/community");   
+                navigate("/categories");   
             }
         }
     }
+
+    //fetching the current user details after sign up
+    useEffect(() => {
+        if (localStorage.getItem('token') !== null) {
+            axiosapi.get('/current-user', {
+                crossDomain: true,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+            })
+                .then((res) => {
+                    const data = res.data;
+                    console.log(data);
+                    if (localStorage.getItem('name') == null) {
+                        localStorage.setItem('id', data._id);
+                        localStorage.setItem('name', data.name)
+                        localStorage.setItem('email', data.username);
+                        window.location.reload();
+                    }
+                });
+        }
+    }, []);
 
     return (
     <>
@@ -99,7 +124,7 @@ function GeneralUserDetails() {
                         <option value="₹20,00,000 +">₹20,00,000 +</option>
                     </select>
                 </div>
-                <button onClick={submitExtraDetails} type='submit'>Go To Community<AiOutlineArrowRight/></button>
+                <button onClick={submitExtraDetails} type='submit'>Go To Dashboard<AiOutlineArrowRight/></button>
             </form>
         </div>
     </>

@@ -5,16 +5,18 @@ import Header from "../../components/Header/Header";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import { useState } from "react";
 import axiosapi from '../../services/axiosapi';
+import SubscriptionPopup from './SubscriptionPopup';
 
 const UserDashboard = () => {
     const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
     const [component, setComponentActive] = useState(<Dashboard />);
+    const [hasMembership, setHasMembership] = useState('');
 
     const handleSidebar = () => {
         setOpenSidebarToggle((prev) => !prev);
     };
 
-    useEffect(() => {
+    const fetchUser = () => {
         if (localStorage.getItem('token') !== null) {
             axiosapi.get('/current-user', {
                 crossDomain: true,
@@ -44,23 +46,48 @@ const UserDashboard = () => {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
             })
-                .then((res) => {
-                    const data = res.data;
-                    console.log(data);
-                    localStorage.setItem("result", data.result)
-                });
+            .then((res) => {
+                const data = res.data;
+                console.log(data);
+                localStorage.setItem("result", data.result)
+            });
         }
+    }
+
+    const fetchSubscription = () => {
+        if (localStorage.getItem('token') !== null) {
+            axiosapi.get(`/user/getSubscription/${localStorage.getItem("email")}`, {
+                crossDomain: true,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+            })
+            .then((res) => {
+                const data = res.data;
+                setHasMembership(data);
+                localStorage.setItem("subscription", data);
+            })
+        }
+    }
+
+    useEffect(() => {
+        fetchUser();
+        fetchSubscription();
     }, []);
 
     return (
-        <div className="grid-container">
-
-            <>
-                <Header sidebarHandler={handleSidebar} />
-                <Sidebar componentHandler={setComponentActive} sidebarHandler={handleSidebar} openSidebar={openSidebarToggle} />
-                {component}
-            </>
-
+        <div className={`all-content ${hasMembership === '' ? 'blur' : ''}`}>
+            <div className={`grid-container`}>
+                <>
+                    <Header sidebarHandler={handleSidebar} />
+                    <Sidebar componentHandler={setComponentActive} sidebarHandler={handleSidebar} openSidebar={openSidebarToggle} />
+                    {component}
+                </>
+            </div>
+            {hasMembership === '' && <SubscriptionPopup className="subscriptionPopup"/>}
         </div>
     );
 }

@@ -27,7 +27,7 @@ const ChatApp = () => {
 
   //function to connect the user to the websocket server
   const connect = () => {
-    const socket = new SockJS('http://localhost:8080/ws');
+    const socket = new SockJS('https://mentalhealth-api-xa6u.onrender.com/ws');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, onConnected, onError);
   };

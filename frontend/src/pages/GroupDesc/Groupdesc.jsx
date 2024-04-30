@@ -50,21 +50,26 @@ const Groupdesc = () => {
         const response = await axiosapi.put(`/extra/addGroup/${localStorage.getItem('id')}`, id.id, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'opType': "join"
             }
         })
         console.log(response.status)
         if (response.status == 200) {
-            axiosapi.put(`/groups/updateGroupMembers/${id.id}`, {
-                crossDomain: true,
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: "application/json",
-                    "Access-Control-Allow-Origin": "*",
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                
-                },
-            })
+            try {
+                await axiosapi.put(`/groups/updateGroupMembers/${id.id}`, {}, {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                        'opType': "add"
+                    },
+                })
+                .then((res) => {
+                    console.log(res);
+                })
+            } catch (error) {
+                console.log(error);
+            }
 
             swal({
                 title: "Welcome!",
@@ -90,18 +95,16 @@ const Groupdesc = () => {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                'opType': "join",
+                'opType': "join"
             }
         })
         console.log(response.status)
         if (response.status == 200) {
-            axiosapi.put(`/groups/updateGroupMembers/${id.id}`, {
-                crossDomain: true,
+            await axiosapi.put(`/groups/updateGroupMembers/${id.id}`, {}, {
                 headers: {
-                    'Content-Type': 'application/json',
-                    Accept: "application/json",
                     "Access-Control-Allow-Origin": "*",
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'opType': "add"
                 },
             })
         }
@@ -137,14 +140,16 @@ const Groupdesc = () => {
     useEffect(() => {
 
         // Check if id exists in the groups array
-        const idExists = groups ? groups.some(group => JSON.parse(group) === id.id) : '';
+        if (groups.length !== 0) {
+            const idExists = groups.some(group => JSON.parse(group) === id.id);
 
-        if (idExists) {
-            setMember(true);
-            console.log(`exist`);
-        } else {
-            setMember(false);
-            console.log(`not exists`);
+            if (idExists) {
+                setMember(true);
+                console.log(`exist`);
+            } else {
+                setMember(false);
+                console.log(`not exists`);
+            }
         }
     }, [id, groups, Admin]);
 
@@ -171,7 +176,7 @@ const Groupdesc = () => {
                         <h1>{groupsData.title}</h1>
                         <p><FaLocationDot color='#ff1154' />   {groupsData.location}</p>
                         <p><GrGroup />   {groupsData.members} members</p>
-                        <p><IoPersonOutline />Organized by<span>{groupsData.organizer}</span></p>
+                        <p><IoPersonOutline />Organized by<strong>{groupsData.organizer}</strong></p>
                     </div>
                     {!isMember && !Admin && (
                         <>

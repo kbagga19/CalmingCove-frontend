@@ -21,6 +21,8 @@ import Reports from "../Reports/Reports";
 function Sidebar({ openSidebar, sidebarHandler, componentHandler }) {
   const [active, setActive] = useState('Dashboard');
 
+  const membership = localStorage.getItem("subscription")
+
   return (
     <aside id={classes.sidebar} className={openSidebar ? classes["sidebar-responsive"] : ""}>
       <div className={classes["sidebar-title"]}>
@@ -33,15 +35,22 @@ function Sidebar({ openSidebar, sidebarHandler, componentHandler }) {
       </div>
 
       <ul className={classes["sidebar-list"]}>
-        <li onClick={() => {componentHandler(<Dashboard/>); setActive('Dashboard')}} className={`${classes["sidebar-list-item"]} ${active === 'Dashboard' ? `${classes["itemActive"]}` : ''}`}>
+        <li onClick={() => {componentHandler(<Dashboard/>); setActive('Dashboard')}} className={`${classes["sidebar-list-item"]} ${active === 'Dashboard' ? `${classes["itemActive"]}` : '' }`}>
             <BsGrid1X2Fill className={classes.icon} /> Dashboard
         </li>
 
-        <li onClick={() => {componentHandler(<Plan/>); setActive('Plan')}} className={`${classes["sidebar-list-item"]} ${active === 'Plan' ? `${classes["itemActive"]}` : ''}`}>
+        <li 
+          onClick={() => {componentHandler(<Plan/>); setActive('Plan')}} 
+          className={`${classes["sidebar-list-item"]} ${active === 'Plan' ? `${classes["itemActive"]}` : ''}`} 
+          style={membership === 'Silver' ? {pointerEvents: 'none', opacity: 0.6, '&:hover': {cursor: 'not-allowed'}} : {pointerEvents: 'all'}} 
+        >
             <BsListCheck className={classes.icon} /> Your Plan
         </li>
 
-        <li onClick={() => {componentHandler(<MoodTracker/>); setActive('MoodTracker')}} className={`${classes["sidebar-list-item"]} ${active === 'MoodTracker' ? `${classes["itemActive"]}` : ''}`}>
+        <li 
+          onClick={() => {componentHandler(<MoodTracker/>); setActive('MoodTracker')}} className={`${classes["sidebar-list-item"]} ${active === 'MoodTracker' ? `${classes["itemActive"]}` : ''}`}
+          style={membership === 'Silver' ? {pointerEvents: 'none', opacity: 0.6, '&:hover': {cursor: 'not-allowed'}} : {pointerEvents: 'all'}}  
+        >
             <TbMoodPlus className={classes.icon} /> Mood, Sleep Tracker
         </li>
 
@@ -49,7 +58,10 @@ function Sidebar({ openSidebar, sidebarHandler, componentHandler }) {
             <BsPeopleFill className={classes.icon} /> Support Groups
         </li>
 
-        <li onClick={() => {componentHandler(<Reports/>); setActive('Reports')}}className={`${classes["sidebar-list-item"]} ${active === 'Reports' ? `${classes["itemActive"]}` : ''}`}>
+        <li 
+          onClick={() => {componentHandler(<Reports/>); setActive('Reports')}}className={`${classes["sidebar-list-item"]} ${active === 'Reports' ? `${classes["itemActive"]}` : ''}`}
+          style={membership === 'Silver' ? {pointerEvents: 'none', opacity: 0.6, '&:hover': {cursor: 'not-allowed'}} : {pointerEvents: 'all'}}  
+        >
             <BsMenuButtonWideFill className={classes.icon} /> Reports
         </li>
         <li className={classes["sidebar-list-item"]}>

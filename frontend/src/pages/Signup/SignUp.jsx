@@ -82,6 +82,17 @@ function SignUp() {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.status === 200) {
+            
+            axiosapi.post(`/extra/addDetails`, { 
+                "userId": response.data._id 
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": "true"
+                }
+            })
+
             swal({
                 title: "Registered!",
                 text: "You have registered successfully!",
@@ -103,7 +114,7 @@ function SignUp() {
                 const data = res.data
                 if (data.token !== "") {
                     window.localStorage.setItem("token", data.token);
-                    navigate("/categories");
+                    navigate("/general");
                 } else {
                     swal("Wrong Credentials", "Something went wrong!", "error")
                 }

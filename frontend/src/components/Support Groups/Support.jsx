@@ -30,15 +30,21 @@ const Support = () => {
     
     useEffect(() => { 
       fetchData();
-    },[])
+    },[groups])
 
   return (
     <div>
         <div className="supportcontainer">
             <h3>Your Support Groups</h3>
-            {groups.length !==0 && groups.map((groupId) => (
-              <GroupDashboard key={groupId} groupId={groupId}/>
-            ))}
+          {
+            groups.length === 0 ? (
+              <h5>Join group first!</h5>
+            ) : (
+              groups.map((groupId) => (
+                <GroupDashboard key={groupId} groupId={groupId}/>
+              ))
+            )
+          }
         </div>
     </div>
   )

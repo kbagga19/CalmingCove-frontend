@@ -53,19 +53,21 @@ function Plan() {
 
     // Fetch Tasks Completed
     const fetchTasks = async () => {
-        const response = await axiosapi.get(`/extra/tasksCompleted/${localStorage.getItem('id')}`, { 
-            crossDomain: true, 
-            headers: { 'Content-Type':'application/json', 
-              Accept: "application/json", 
-              "Access-Control-Allow-Origin": "*", 
-              'Authorization': `Bearer ${localStorage.getItem('token')}` 
-            } 
-        })
-        if (response.status == 200) {
-            const data = await response.data;
-            setTasksCompleted(data);
-        } else {
-          setTasksCompleted([false, false, false]);
+        try {
+            const response = await axiosapi.get(`/extra/tasksCompleted/${localStorage.getItem('id')}`, { 
+                crossDomain: true, 
+                headers: { 'Content-Type':'application/json', 
+                Accept: "application/json", 
+                "Access-Control-Allow-Origin": "*", 
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+                } 
+            })
+            .then(async (res) => {
+                const data = await response.data;
+                setTasksCompleted(data);
+            })
+        } catch (error) {
+            setTasksCompleted([false, false, false]);
         }
     }
 

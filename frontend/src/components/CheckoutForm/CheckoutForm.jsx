@@ -5,7 +5,8 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
-import "./CheckoutForm.css"
+import "./CheckoutForm.css";
+import axiosapi from '../../services/axiosapi'
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -53,6 +54,22 @@ export default function CheckoutForm() {
     }
 
     setIsLoading(true);
+
+    const response = await axiosapi.put(`/user/addSubscription/${localStorage.getItem("email")}`, 
+    id.id === '1000' ? 'Silver' : id.id === '2000' ? 'Gold' : 'Platinum',
+    {
+     headers: {
+       'Content-Type': 'application/json',
+       'Authorization': `Bearer ${localStorage.getItem('token')}`,
+       "Access-Control-Allow-Origin": "*",
+       "Access-Control-Allow-Credentials": "true"
+     }
+    })
+    if (response.status === 200) {
+      console.log('hi')
+    } else {
+      console.log(response.status)
+    }
 
     const { error } = await stripe.confirmPayment({
       elements,
