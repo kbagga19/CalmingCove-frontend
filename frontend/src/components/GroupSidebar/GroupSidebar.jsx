@@ -63,7 +63,7 @@ const GroupSidebar = ({ componentHandler, member, admin }) => {
               Events
             </li>
 
-            <li onClick={() => { componentHandler(<GroupReviews />); setActive('MoodTracker') }} className={` ${active === 'MoodTracker' ? `` : ''}`}>
+            <li onClick={() => { componentHandler(<GroupReviews isMember = {isMember}/>); setActive('MoodTracker') }} className={` ${active === 'MoodTracker' ? `` : ''}`}>
               Reviews
             </li>
             {isMember && (

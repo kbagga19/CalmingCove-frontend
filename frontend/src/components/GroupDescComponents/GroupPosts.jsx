@@ -32,7 +32,7 @@ const GroupPosts = () => {
   
   const id = useParams();
 
-  const sortedPosts = postHistory.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  const sortedPosts = postHistory? postHistory.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)) : '';
 
   const formatTimestamp = (timestamp) => {
     const difference = differenceInMinutes(new Date(), new Date(timestamp));

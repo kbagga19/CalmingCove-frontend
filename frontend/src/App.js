@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import Login from "./pages/Login/Login";
@@ -10,7 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import Community from "./pages/Community/Community";
 import Groupdesc from "./pages/GroupDesc/Groupdesc";
 import StartGroupQuestionsPage from "./pages/StartGroupsQuestionsPage/StartGroupQuestionsPage";
-//import GeneralUserDetails from "./components/GeneralUserDetails/GeneralUserDetails";
+import GeneralUserDetails from "./components/GeneralUserDetails/GeneralUserDetails";
 import BlogsPage from "./pages/BlogsPage/BlogsPage";
 import BlogsDetail from "./pages/BlogsPage/BlogsDetail";
 import WorksheetsPage from "./pages/WorksheetsPage/WorksheetsPage";
@@ -19,12 +19,13 @@ import GroupChatPage from "./pages/GroupChat/GroupChatPage";
 import Stripe from "./services/Stripe";
 import Success from "./pages/PaymentSuccess/Success";
 
-//import UploadBlog from "./components/BlogsPage/UploadBlog";
+import UploadBlog from "./components/BlogsPage/UploadBlog";
 import TherapistsPage from "./pages/TherapistsPage/TherapistsPage";
 
 function App() {
   return (
     <div className="container">
+    <Router>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/categories" element={<Categories />} />
@@ -49,6 +50,7 @@ function App() {
           <Route path="/success" element={<Success />}></Route>
         </Route>
       </Routes>
+      </Router>
     </div>
   );
 }

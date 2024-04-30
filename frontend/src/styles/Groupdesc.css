@@ -414,7 +414,7 @@
     justify-content: center;
 }
 
-.joinchatbutton button {
+.joinchatbutton button, .writeReviewContainer button {
     background-color: #ffe6ed;
     border-radius: 8px;
     box-shadow: rgb(255, 204, 218) 0 2px 4px, rgb(255, 204, 218) 0 7px 13px -3px, #ffb3c8 0 -3px 0 inset;
@@ -459,6 +459,100 @@
     font-size: 1rem;
     font-weight: 600;
 }
+
+/* REVIEWS SECTION */
+
+  .reviewheading{
+    text-align: center;
+    padding: 20px;
+    line-height: 1.5;
+  }
+
+  .reviewheading span{
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .reviewheading p{
+    color: grey;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .writeReviewContainer{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .modal-container{
+    padding: 20px;
+    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  .close-modal{
+    float: right;
+    font-size: 1.5rem;
+  }
+
+  .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  
+  .rating input {
+    display: none;
+  }
+  
+  .rating label {
+    float: right;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+  }
+  
+  .rating label:before {
+    content: '\2605';
+    font-size: 45px;
+  }
+  
+  .rating input:checked ~ label,
+  .rating label:hover,
+  .rating label:hover ~ label {
+    color: #ffbd44;
+    transition: color 0.3s;
+  }
+  
+  .reviewbox textarea{
+    min-height: 20vh;
+    background-color: #fafafa;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+  }
+
+  .reviewsubmit{
+    display: flex;
+    justify-content: center;
+  }
+
+  .reviewsubmit button{
+    background-color: blue;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
+    padding: 5px 20px 5px 20px;
+    border: none;
+  }
+
 
 @media only screen and (max-width: 800px) {
     .groupelements ul {
