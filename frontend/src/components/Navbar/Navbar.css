@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&display=swap');
+
 nav {
     display: flex;
     align-items: center;
@@ -9,7 +11,7 @@ nav {
 }
 
 .homepage-navbar {
-    background-color: #f9f8f4;
+    background-color: #fefefe;
 }
 
 .navLeft {
@@ -28,16 +30,21 @@ nav {
 
 .homepage-title {
     font-size: 1.5rem;
-    font-weight: bold;
     text-decoration: none;
     color: black;
+    font-family: "Briem Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
 
-.navCenter, .homepage-navCenter {
+.navCenter,
+.homepage-navCenter {
     width: 60%;
 }
 
-.navCenter ul, .homepage-navCenter ul {
+.navCenter ul,
+.homepage-navCenter ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -87,7 +94,8 @@ nav {
     transform-origin: bottom left;
 }
 
-.navRight, .homepage-navRight {
+.navRight,
+.homepage-navRight {
     width: 25%;
     display: flex;
     justify-content: space-evenly;
@@ -128,7 +136,7 @@ nav {
     text-decoration: none;
     cursor: pointer;
     color: white;
-    background-color: #026fff;
+    background-color: #f378c1;
     padding: 2.5%;
 }
 
@@ -141,7 +149,8 @@ nav {
     padding: 2.5%;
 }
 
-.loginSignup, .homepage-loginSignup {
+.loginSignup,
+.homepage-loginSignup {
     width: 100%;
     list-style: none;
     display: flex;
@@ -163,10 +172,11 @@ nav {
     color: white;
     padding: 10px;
     border-radius: 0.5rem;
-    background-color: #026fff;
+    background-color: #f378c1;
 }
 
-.homepage-navdropdown, .navdropdown {
+.homepage-navdropdown,
+.navdropdown {
     padding: 1%;
     position: absolute;
     top: 100%;
@@ -178,15 +188,16 @@ nav {
     transition: all 0.2s ease-in-out;
 }
 
-.homepage-navdropdown{
-    background-color: #026fff;
+.homepage-navdropdown {
+    background-color: #f378c1;
 }
 
-.navdropdown{
+.navdropdown {
     background-color: #fff;
 }
 
-.homepage-navdropdown a, .navdropdown a{
+.homepage-navdropdown a,
+.navdropdown a {
     padding: 15px;
     align-items: center;
     display: flex;
@@ -194,7 +205,8 @@ nav {
     text-decoration: none;
 }
 
-.homepage-navdropdown a, .navdropdown a{
+.homepage-navdropdown a,
+.navdropdown a {
     color: #fff;
 }
 
@@ -202,32 +214,37 @@ nav {
     color: #0f172a;
 }
 
-.homepage-navdropdown a:hover{
-    background: #b3d4ff;
+.homepage-navdropdown a:hover {
+    background: #e3ef9c;
     color: #0f172a;
     border-radius: 10px;
 }
 
-.navdropdown a:hover{
+.navdropdown a:hover {
     background: #0f172a;
     color: #fff;
     border-radius: 10px;
 }
 
-.menuIcon, .homepage-menuIcon {
+.menuIcon,
+.homepage-menuIcon {
     display: none;
 }
 
 @-webkit-keyframes slide {
-    100% { left: 0; }
+    100% {
+        left: 0;
+    }
 }
 
 @keyframes slide {
-    100% { left: 0; }
+    100% {
+        left: 0;
+    }
 }
 
 .mobileNavbar {
-    position: absolute;  
+    position: absolute;
     background-color: white;
     height: 100%;
     width: 100%;
@@ -235,7 +252,7 @@ nav {
     overflow: hidden;
     -webkit-animation: slide 0.5s forwards;
     animation: slide 0.5s forwards;
-    top: 0; 
+    top: 0;
     position: fixed;
 }
 
@@ -265,7 +282,9 @@ nav {
 
 
 @media only screen and (max-width: 800px) {
-    .greeting, .homepage-greeting {
+
+    .greeting,
+    .homepage-greeting {
         width: auto;
         font-size: 0.9em;
     }
@@ -274,7 +293,8 @@ nav {
         gap: 5px;
     }
 
-    .navCenter, .homepage-navCenter {
+    .navCenter,
+    .homepage-navCenter {
         display: none;
     }
 
@@ -293,27 +313,32 @@ nav {
         width: 45%;
     }
 
-    .navRight, .homepage-navRight {
+    .navRight,
+    .homepage-navRight {
         width: 45%;
     }
 
-    .loginSignup, .homepage-loginSignup {
+    .loginSignup,
+    .homepage-loginSignup {
         padding-left: 0;
         gap: 10px;
         width: auto;
     }
 
-    .loginSignup li, .homepage-loginSignup li {    
+    .loginSignup li,
+    .homepage-loginSignup li {
         width: auto;
     }
 
-    .homepage-logout, .logout {
+    .homepage-logout,
+    .logout {
         display: flex;
         align-items: center;
         height: 5vh;
     }
 
-    .navRight, .homepage-navRight {
+    .navRight,
+    .homepage-navRight {
         display: flex;
         align-items: center;
     }

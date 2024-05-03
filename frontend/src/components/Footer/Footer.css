@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&display=swap');
+
 .main-footer {
     color: white;
-    background-color: #0f172a;
+    background-color: #371544;
     position: relative;
     width: 100%;
 }
@@ -41,7 +43,12 @@
 
 .footerLogo span{
     font-size: 1.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-family: "Briem Hand", cursive;
+    font-optical-sizing: auto;
     font-weight: 600;
+    font-style: normal;
 }
 
 .footerIcons {

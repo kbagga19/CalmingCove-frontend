@@ -78,12 +78,12 @@ const Navbar = ({ isHomePage }) => {
         <MenuIcon onClick={navToggle}/>
       </div>
       <div className="navLeft">
-        <img src={Logo} width={60} />
+        <img src={Logo} width={45} />
         <Link
           to="/"
           className={`${isHomePage ? "homepage-title" : "navTitle"}`}
         >
-          MindWell
+          CalmingCove
         </Link>
       </div>
       <div className={`${isHomePage ? "homepage-navCenter" : "navCenter"}`}>

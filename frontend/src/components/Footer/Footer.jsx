@@ -14,7 +14,7 @@ const footer = () => {
                 <div className="">
                     <div className="footerLogo">
                         <img src={Logo} width={60} />
-                        <span>MindWell</span>
+                        <span>CalmingCove</span>
                     </div>
                     <div className="footerIcons">
                         <RiFacebookBoxLine size={30} />
@@ -46,7 +46,7 @@ const footer = () => {
             </div>
             <div className="allrights">
                 <span>Privacy Policy | Terms of Service | Disclaimer</span>
-                <span>© 2023 MindWell. All rights reserved.</span>
+                <span>© 2023 CalmingCove. All rights reserved.</span>
             </div>
         </div>
     )

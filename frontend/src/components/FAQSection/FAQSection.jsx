@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import '../../styles/HomePage.css'
 
 const FAQSection = () => {
   const [openprofile1, setOpenProfile1] = useState(false);
@@ -36,7 +37,7 @@ const FAQSection = () => {
   return (
     <div>
       <div className="questioncontainer">
-        <div className="aboutheading">
+        <div className="subscribeheading">
           <span>Frequently Asked Questions</span>
         </div>
         <div className="questionsContent">

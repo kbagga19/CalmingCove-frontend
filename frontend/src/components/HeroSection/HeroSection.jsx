@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/HomePage.css";
-import Heroimg from "../../assets/heroimg.png";
+import Heroimg from "../../assets/newHero.jpg";
 import { Link } from "react-router-dom";
 import Article from "../../assets/blogging.png";
-import Group from "../../assets/customer-care.png";
+import Group from "../../assets/unity.png";
 import Therapist from "../../assets/mental-health.png";
 
 const HeroSection = () => {
@@ -13,7 +13,7 @@ const HeroSection = () => {
         <div className="herocontainer">
           <div className="heroleft">
             <div className="heroheading">
-              Elevate your mind, <br /> Embrace your wellness!
+              Waves of Stress Meet <br /> a Calming Shore
             </div>
 
             <div className="herotext">

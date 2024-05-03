@@ -55,15 +55,15 @@ const GroupSidebar = ({ componentHandler, member, admin }) => {
   return (
     <div className='groupelements'>
           <ul>
-            <li onClick={() => { componentHandler(<GroupAbout data={about} />); setActive('GroupAbout') }} className={` ${active === 'GroupAbout' ? `` : ''}`}>
+            <li onClick={() => { componentHandler(<GroupAbout data={about} />);  setActive('GroupAbout')}} className={` ${active === 'GroupAbout' ? `` : ''}`}>
               About
             </li>
 
-            <li onClick={() => { componentHandler(<GroupEvents admin={Admin} />); setActive('Plan') }} className={` ${active === 'Plan' ? `` : ''}`}>
+            <li onClick={() => { componentHandler(<GroupEvents admin={Admin} />); setActive('GroupAbout') }} className={` ${active === 'GroupAbout' ? `` : ''}`}>
               Events
             </li>
 
-            <li onClick={() => { componentHandler(<GroupReviews isMember = {isMember}/>); setActive('MoodTracker') }} className={` ${active === 'MoodTracker' ? `` : ''}`}>
+            <li onClick={() => { componentHandler(<GroupReviews isMember = {isMember}/>); setActive('GroupAbout') }} className={` ${active === 'GroupAbout' ? `` : ''}`}>
               Reviews
             </li>
             {isMember && (
@@ -72,11 +72,11 @@ const GroupSidebar = ({ componentHandler, member, admin }) => {
                   Posts
                 </li>
 
-                <li onClick={() => { componentHandler(<GroupChat />); setActive('Plan') }} className={` ${active === 'Plan' ? `` : ''}`}>
+                <li onClick={() => { componentHandler(<GroupChat />); setActive('GroupAbout')}} className={` ${active === 'GroupAbout' ? `` : ''}`}>
                   Group Chat
                 </li>
 
-                <li onClick={() => { componentHandler(<GroupPhotos />); setActive('MoodTracker') }} className={` ${active === 'MoodTracker' ? `` : ''}`}>
+                <li onClick={() => { componentHandler(<GroupPhotos />); setActive('GroupAbout')}}className={` ${active === 'GroupAbout' ? `` : ''}`} >
                   Photos
                 </li>
               </>
@@ -87,11 +87,11 @@ const GroupSidebar = ({ componentHandler, member, admin }) => {
                   Posts
                 </li>
 
-                <li onClick={() => { componentHandler(<GroupChat />); setActive('Plan') }} className={` ${active === 'Plan' ? `` : ''}`}>
+                <li onClick={() => { componentHandler(<GroupChat />);  setActive('GroupAbout')}} className={` ${active === 'GroupAbout' ? `` : ''}`}>
                   Group Chat
                 </li>
 
-                <li onClick={() => { componentHandler(<GroupPhotos />); setActive('MoodTracker') }} className={` ${active === 'MoodTracker' ? `` : ''}`}>
+                <li onClick={() => { componentHandler(<GroupPhotos />); setActive('GroupAbout') }} className={` ${active === 'GroupAbout' ? `` : ''}`}>
                   Photos
                 </li>
               </>

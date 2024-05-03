@@ -1,0 +1,154 @@
+/* ADD NEW EVENT */
+
+.addEventbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.addEventbtn button{
+    background-color: #EEF2FF;
+    border-radius: 8px;
+    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #536DFE;
+    cursor: pointer;
+    border: 2px solid #536DFE;
+    line-height: 1.5;
+    padding: 10px 20px 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+/* EVENT CARDS CONTAINER */
+
+.eventsContainer{
+    padding-top: 20PX;
+    width: 80%;
+    margin: auto;
+}
+
+.eventCardConatiner{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.EventCard{
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.onlineoffline{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border-radius: 5px;
+    padding: 5px;
+    color: grey;
+}
+
+#onlineimg{
+    width: 35px;
+}
+
+#offlineimg{
+    width: 30px;
+}
+
+#eventdate{
+    font-weight: 600;
+    color: cadetblue;
+}
+
+#meetlink{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eventCardFooter{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.eventCardFooter{
+    color: grey;
+}
+
+.eventCardFooter button{
+    background: transparent;
+    border: 2px solid cadetblue;
+    padding: 10px;
+    color: cadetblue;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+
+/* ADD NEW EVENT FORM */
+
+/* .newEventForm{
+    width: 80%;
+    margin: auto;
+} */
+
+.eventform-container {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .eventform-container h2{
+    text-align: center;
+  }
+
+  .eventform-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .eventform-group input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .eventform-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .AddNewEventbtn{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+  
+  
+  
+ 

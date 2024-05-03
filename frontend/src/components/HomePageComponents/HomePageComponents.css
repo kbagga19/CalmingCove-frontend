@@ -1,0 +1,227 @@
+/* TEST SECTION */
+
+.testcontainer {
+    height: auto;
+    background-color: #fefefe;
+    display: flex;
+    line-height: 1.5;
+    padding: 0px;
+    padding-top: 40px;
+  }
+  
+  .testcontainerLeft{
+    width: 50%;
+    height: 80vh;
+  }
+  
+  .testcontainerLeft img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .testcontainerRight{
+    width: 50%;
+    padding-left:50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .testheading {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Roboto", sans-serif;
+    color: #7e4da2;
+  }
+  
+  .testsubheading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .testsubheading span {
+    color: grey;
+  }
+  
+  #testsubheadingbold {
+    font-weight: 600;
+  }
+  
+  .testsubheading button{
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    background-color: #f378c1;
+    color: #fff;
+    width: 30%;
+    cursor: pointer;
+  }
+  
+  .helpline{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* THERAPIST SECTION */
+
+  .TherapistContainerOuter {
+    padding: 50px;
+    padding-top: 70px;
+    background-color: #fefefe;
+  }
+  
+  #TherapyHeading,
+  #BlogHomeHeading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Roboto", sans-serif;
+    color: #7e4da2;
+  }
+  
+  .TherapistContainerInner {
+    display: flex;
+    padding-top: 30px;
+  }
+  
+  .TherapistLeft {
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+  }
+  
+  .TherapistLeft h2,
+  .TherapistLeft span {
+    color: green;
+  }
+  
+  .TherapistLeft p {
+    line-height: 1.4;
+    font-size: 1.2rem;
+  }
+  
+  .Therapistbtn, .SupportHomeButton{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .Therapistbtn button, .SupportHomeUpper button {
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    background-color: #f378c1;
+    color: #fff;
+    width: auto;
+    cursor: pointer;
+  }
+  
+  .TherapistRight {
+    width: 50%;
+    height: 50vh;
+    position: relative;
+  }
+  
+  .therapists-container {
+    width: 100%;
+  }
+  
+  .therapist-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .therapist-circle:nth-child(1) {
+    top: 5%;
+    right: 20%;
+  }
+  
+  .therapist-circle:nth-child(2) {
+    top: 40%;
+    right: 55%;
+  }
+  
+  .therapist-circle:nth-child(3) {
+    top: 70%;
+    right: 20%;
+  }
+  
+  
+  /* BLOGS */
+  
+  .BlogsHomeContainerOuter{
+    padding:60px 30px 0px 30px;
+    height: 100vh;
+    background-color: #fefefe;
+  }
+  
+  
+  .BlogsHomeContainerInner {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* SUPPORT SECTION */
+
+  .SupportHomeOuter{
+    height: 90vh;
+    margin-top: 10%;
+    background-color: #fefefe;
+  }
+
+  .SupportHomeUpper{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+
+  .SupportHomeUpper p{
+    color: grey;
+    line-height: 1.4;
+  }
+
+  .SupportHomeUpper h2{
+    text-align: center;
+    color: #7e4da2;
+    font-size: 1.5rem;
+  }
+
+  .SupportHomeLower{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    padding: 20px 80px 20px 80px;
+  }
+
+  .SupportHomeBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .SupportHomeBox span{
+    font-size: 3rem;
+    border-bottom: 3px solid green;
+  }

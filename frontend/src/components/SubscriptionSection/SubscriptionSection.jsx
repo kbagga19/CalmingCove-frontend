@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const SubscriptionSection = () => {
   return (
     <div>
-      <div className="aboutcontainer">
-        <div className="aboutheading">
+      <div className="subscribecontainer">
+        <div className="subscribeheading">
           <span>Our Plans</span>
         </div>
         <div className="planscontainer">

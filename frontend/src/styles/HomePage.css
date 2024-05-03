@@ -5,7 +5,7 @@
 }
 
 .Hero {
-  background-color: #f9f8f4;
+  background-color: #fefefe;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,8 @@
 .herocontainer {
   display: flex;
   padding: 50px 50px;
-  height: 90vh;
+  height: 80vh;
+  margin-bottom: 10%;
 }
 
 .herocontainer > div {
@@ -35,6 +36,7 @@
   padding-bottom: 2%;
   font-family: "Roboto", sans-serif;
   padding-left: 30px;
+  color: #7e4da2;
 }
 
 .arrowicon {
@@ -64,8 +66,7 @@
   font-size: 16px;
   border-radius: 10px;
   font-weight: 600;
-  background-color: #026fff;
-  color: #fff;
+  background-color: #f378c1;
   width: 30%;
   cursor: pointer;
   margin-left: 30%;
@@ -76,7 +77,7 @@
 }
 
 .heroimg {
-  width: 80%;
+  width: 70%;
 }
 
 .heroboxes {
@@ -140,7 +141,7 @@
 }
 
 /* ABOUT SECTION */
-
+/* 
 .aboutcontainer {
   height: auto;
   background-color: #f9f8f4;
@@ -217,17 +218,18 @@
   background-color: #c6ecff;
   border-radius: 20px;
   transform: scale(1.1, 1.1);
-}
+} */
 
 /* TAKE A TEST SECTION */
-
+/* 
 .testcontainer {
   height: auto;
-  background-color: #f9f8f4;
+  background-color: #fefefe;
   display: flex;
   justify-content: space-around;
   line-height: 1.5;
   padding: 20px;
+  padding-top: 40px;
 }
 
 .testcontainerLeft{
@@ -253,6 +255,7 @@
   display: flex;
   font-size: 3em;
   font-family: "Roboto", sans-serif;
+  color: #7e4da2;
 }
 
 .testsubheading {
@@ -276,7 +279,7 @@
   font-size: 16px;
   border-radius: 10px;
   font-weight: 600;
-  background-color: #026fff;
+  background-color: #f378c1;
   color: #fff;
   width: 30%;
   cursor: pointer;
@@ -286,14 +289,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
+} */
 
 /* FAQs SECTION */
 
 .questioncontainer {
   height: auto;
-  background-color: #f9f8f4;
-  padding: 10% 5% 5% 5%;
+  background-color: #fefefe;
+  padding: 5% 5% 5% 5%;
 }
 
 .questionsContent {
@@ -307,7 +310,7 @@
 
 .questions {
   padding: 20px;
-  border-bottom: 2px solid #026fff;
+  border-bottom: 2px solid #f378c1;
 }
 
 .questions > span {
@@ -326,7 +329,7 @@
 
 .plus {
   cursor: pointer;
-  color: #026fff;
+  color: #f378c1;
 }
 
 .answer {
@@ -335,6 +338,27 @@
 }
 
 /* SUBSCRIPTION SECTION */
+
+.subscribecontainer {
+  height: auto;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subscribeheading {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.subscribeheading span {
+  font-size: 3.5em;
+  font-family: "Roboto", sans-serif;
+  color: #7e4da2;
+}
 
 .planscontainer {
   width: 80%;
@@ -363,7 +387,7 @@
   align-items: center;
   padding: 20px;
   padding-top: 55px;
-  background-color: #e6f7ff;
+  background-color: #e8d2f0;
   border-radius: 12px;
   position: relative;
   height: 100%;
@@ -381,7 +405,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #80d4ff;
+  background-color: #D095E5;
   border-radius: 99em 0 0 99em;
   display: flex;
   align-items: center;
@@ -454,7 +478,7 @@
 }
 
 .plancard .planbutton {
-  background-color: #0099e6;
+  background-color: #7e4da2;
   border-radius: 6px;
   color: #fff;
   font-weight: 500;

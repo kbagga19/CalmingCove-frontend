@@ -79,7 +79,7 @@ const StartGroupQuestionsPage = () => {
     if (response.status === 200) {
       const res = await axiosapi.post('/extra/addDetails', { 
         "type": "admin", 
-        "userId": localStorage.getItem('id') 
+        //"userId": localStorage.getItem('id') 
       }, {
         headers: {
           'Content-Type': 'application/json',
