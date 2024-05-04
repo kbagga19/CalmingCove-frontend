@@ -3,7 +3,7 @@
 nav {
     display: flex;
     align-items: center;
-    background-color: #0f172a;
+    background-color: #330f41;
     position: sticky;
     top: 0;
     height: 10vh;
@@ -26,6 +26,7 @@ nav {
     font-weight: bold;
     text-decoration: none;
     color: white;
+    font-family: "Briem Hand", cursive;
 }
 
 .homepage-title {

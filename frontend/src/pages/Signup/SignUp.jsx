@@ -1,13 +1,12 @@
 import { useState, useRef } from 'react';
 import React from 'react';
-import img from '../../assets/TaeAugust05.jpg';
 import Navbar from '../../components/Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import emailjs from '@emailjs/browser';
 import axiosapi from '../../services/axiosapi';
 
-function SignUp() {
+function SignUp({handleRegisterButtonClick}) {
     const [showEmergency, setShowEmergency] = useState(false);
     const [userDetails, setUserDetails] = useState({
         user_name: '',
@@ -130,43 +129,35 @@ function SignUp() {
 
     return (
         <>
-            <Navbar />
-            <div className='main'>
-                <div className='loginImage'>
-                    <img src={img} alt="" />
-                </div>
-                <div className='details'>
-                    {!showEmergency && (<>
-                        <h2>Create an Account</h2>
-                        <form ref={form1} onSubmit={saveDetails}>
-                            <label>Full Name</label>
-                            <input value={userDetails.user_name} onChange={handleUserInputChange} type="text" name="user_name" id="" placeholder='Your Name' required />
-                            <label>Mobile Number</label>
-                            <input value={userDetails.user_number} min={6000000000} max={9999999999} onChange={handleUserInputChange} type="number" name="user_number" id="" placeholder='Enter Your Number' required />
-                            <label>Email</label>
-                            <input value={userDetails.user_email} onChange={handleUserInputChange} type="email" name="user_email" id="" placeholder='Email' required />
-                            <label>Password</label>
-                            <input value={userDetails.user_password} onChange={handleUserInputChange} type="password" name="user_password" id="" placeholder='Password' required />
-                            <button type='submit'>Continue</button>
-                        </form>
-                    </>
-                    )}
-                    {showEmergency && (<>
-                        <h2>Emergency Contact Details</h2>
-                        <form ref={form2} onSubmit={submitDetails}>
-                            <label>Emergency Contact Name</label>
-                            <input value={emergencyDetails.extra_name} onChange={handleEmergencyInputChange} type="text" name="extra_name" id="" placeholder='Emergency Contact Name' required />
-                            <label>Emergency Contact Mobile Number</label>
-                            <input value={emergencyDetails.extra_number} onChange={handleEmergencyInputChange} type="number" name="extra_number" id="" placeholder='Emergency Contact Number' required />
-                            <label>Emergency Contact Email</label>
-                            <input value={emergencyDetails.extra_email} onChange={handleEmergencyInputChange} type="email" name="extra_email" id="" placeholder='Emergency Contact Email' required />
-                            <button type='submit'>Register</button>
-                        </form>
-                    </>
-                    )}
-                </div>
-
-            </div>
+        {!showEmergency && (<>
+            <h2>Create an Account</h2>
+            <form ref={form1} onSubmit={saveDetails}>
+                <label>Full Name</label>
+                <input value={userDetails.user_name} onChange={handleUserInputChange} type="text" name="user_name" id="" placeholder='Your Name' required />
+                <label>Mobile Number</label>
+                <input value={userDetails.user_number} min={6000000000} max={9999999999} onChange={handleUserInputChange} type="number" name="user_number" id="" placeholder='Enter Your Number' required />
+                <label>Email</label>
+                <input value={userDetails.user_email} onChange={handleUserInputChange} type="email" name="user_email" id="" placeholder='Email' required />
+                <label>Password</label>
+                <input value={userDetails.user_password} onChange={handleUserInputChange} type="password" name="user_password" id="" placeholder='Password' required />
+                <button type='submit'>Continue</button>
+            </form>
+            <div className='registerLink'><p>Already have an account? </p><p onClick={handleRegisterButtonClick} className='registerClick'>Login here</p></div>
+        </>
+        )}
+        {showEmergency && (<>
+            <h2>Emergency Contact Details</h2>
+            <form ref={form2} onSubmit={submitDetails}>
+                <label>Emergency Contact Name</label>
+                <input value={emergencyDetails.extra_name} onChange={handleEmergencyInputChange} type="text" name="extra_name" id="" placeholder='Emergency Contact Name' required />
+                <label>Emergency Contact Mobile Number</label>
+                <input value={emergencyDetails.extra_number} onChange={handleEmergencyInputChange} type="number" name="extra_number" id="" placeholder='Emergency Contact Number' required />
+                <label>Emergency Contact Email</label>
+                <input value={emergencyDetails.extra_email} onChange={handleEmergencyInputChange} type="email" name="extra_email" id="" placeholder='Emergency Contact Email' required />
+                <button type='submit'>Register</button>
+            </form>
+        </>
+        )}
         </>
     )
 }

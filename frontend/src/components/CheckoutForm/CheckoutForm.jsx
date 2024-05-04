@@ -74,7 +74,7 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "https://mindwell-pi.vercel.app/success",
+        return_url: "http://localhost:3000/success",
       },
     });
 

@@ -5,9 +5,6 @@ function SubscriptionPopup() {
     return (
         <div className='subscriptionPopup'>
           <div className="aboutcontainer">
-            <div className="aboutheading">
-              <span>Our Plans</span>
-            </div>
             <div className="planscontainer">
               <div className="plancard">
                 <div className="planinner">

@@ -58,7 +58,7 @@ const SliderHomeComponent = () => {
           trigger: containerRef.current,
           pin: true,
           scrub: 1 / (sectionsRef.current.length - 1),
-          end: () => '+=' + 865,
+          end: () => '+=' + 1500,
         },
       });
       // console.log(containerRef.current.offsetWidth);
@@ -89,7 +89,7 @@ const SliderHomeComponent = () => {
   }, [])
 
   return (
-    <div ref={containerRef} style={{ width: '100vw', height: '120vh', overflow: 'auto', overflowX: 'hidden', backgroundColor: '#fefefe'}}>
+    <div ref={containerRef} style={{ width: '100vw', height: '120vh', overflow: 'auto', overflowX: 'hidden', backgroundColor: '#fefefe', display: 'flex', alignItems: 'center'}}>
       <div style={{ display: 'flex', width: '400vw', height: '100vh' }}>
         <div ref={el => (sectionsRef.current[0] = el)} style={{ flex: '1 0 0', minWidth: '100vw', height: '100%', backgroundColor: '#fefefe' }}>
           

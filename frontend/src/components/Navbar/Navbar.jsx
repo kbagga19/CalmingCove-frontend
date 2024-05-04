@@ -145,11 +145,11 @@ const Navbar = ({ isHomePage }) => {
             className={`${isHomePage ? "homepage-loginSignup" : "loginSignup"}`}
           >
             <li>
-              <NavLink to="/login">Log In</NavLink>
+              <NavLink to="/login">Log In / Sign Up</NavLink>
             </li>
-            <li>
-              <NavLink to="/signup">Sign Up</NavLink>
-            </li>
+            {/* <li>
+              <NavLink to="/login">Sign Up</NavLink>
+            </li> */}
           </ul>
         </div>
       )}
