@@ -1,13 +1,13 @@
 /* ADD NEW EVENT */
 
-.addEventbtn{
+.addEventbtn {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
 }
 
-.addEventbtn button{
+.addEventbtn button {
     background-color: #EEF2FF;
     border-radius: 8px;
     box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
@@ -22,30 +22,37 @@
 
 
 /* EVENT CARDS CONTAINER */
+.noEvents {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.eventsContainer{
+.eventsContainer {
     padding-top: 20PX;
     width: 80%;
     margin: auto;
 }
 
-.eventCardConatiner{
+.eventCardConatiner {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding-top: 20px;
 }
 
-.EventCard{
-    background-color: #fff;
+.EventCard {
+    background-color: #fbf5ff;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
     position: relative;
 }
 
-.onlineoffline{
+.onlineoffline {
     width: 30%;
     display: flex;
     align-items: center;
@@ -55,45 +62,50 @@
     color: grey;
 }
 
-#onlineimg{
+#onlineimg {
     width: 35px;
 }
 
-#offlineimg{
+#offlineimg {
     width: 30px;
 }
 
-#eventdate{
+#eventdate {
     font-weight: 600;
-    color: cadetblue;
+    color: #c154c1;
 }
 
-#meetlink{
+#meetlink {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.eventCardFooter{
+.eventCardFooter {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
     align-items: center;
 }
 
-.eventCardFooter{
+.eventCardFooter {
     color: grey;
 }
 
-.eventCardFooter button{
+.eventCardFooter button {
     background: transparent;
-    border: 2px solid cadetblue;
+    border: 2px solid #c154c1;
     padding: 10px;
-    color: cadetblue;
+    color: #c154c1;
     font-weight: 600;
     border-radius: 5px;
 }
 
+.eventCardFooter>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* ADD NEW EVENT FORM */
 
@@ -108,32 +120,32 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
+}
 
-  .eventform-container h2{
+.eventform-container h2 {
     text-align: center;
-  }
+}
 
-  .eventform-group {
+.eventform-group {
     margin-bottom: 20px;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     margin-bottom: 5px;
-  }
-  
-  .eventform-group input,
-  select,
-  textarea {
+}
+
+.eventform-group input,
+select,
+textarea {
     width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .eventform-container button {
+}
+
+.eventform-container button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -141,14 +153,105 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-  }
+}
 
-  .AddNewEventbtn{
+.AddNewEventbtn {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
-  
-  
-  
- 
+
+
+/* EVENT DETAILS CONTAINER */
+
+.EventdetailsContainer {
+    width: 80%;
+    margin: auto;
+}
+
+.Eventdetailsheader {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eventDetailsContent {
+    display: flex;
+}
+
+.eventdetailscontentL {
+    width: 70%;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.eventdetailscontentR {
+    width: 30%;
+}
+
+.detailsBox {
+    background-color: #e9e9eb;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.detailsboxDateTime,
+.detailsboxLocation {
+    padding: 20px 10px 0px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.5;
+}
+
+.detailsboxLocation {
+    padding-bottom: 20px;
+}
+
+
+.eventdetailsFooter {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fefefe;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.eventbuttons{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.eventdateTime{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.eventbuttons button{
+    padding: 10px 20px 10px 20px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    border: 2px solid #f378c1;
+    color: #f378c1;
+}
+
+.eventbuttons span{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#attendbtn{
+    background-color: #f378c1;
+    color: white;
+}

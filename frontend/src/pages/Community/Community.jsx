@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../../styles/Community.css'
 import Navbar from '../../components/Navbar/Navbar'
-import Support from '../../assets/support.png';
+import Support from '../../assets/SupportNew.jpg';
 import GroupCard from '../../components/GroupCard/GroupCard.jsx';
 import { Link, useParams } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
@@ -73,16 +73,16 @@ const Community = () => {
                     </div>
                     <div className='communityTopRight'>
                         <h1>Join A Mental Health Support Group</h1>
-                        <p>Meet other people interested in Mental and Physical Health Support: share experiences, inspire and encourage each other! Join a Mental Health Support group.</p>
-                        <div className="supportmembers">
+                        <p>Meet other people interested in Mental Health Support: <br/><h3>Share Experiences, Inspire and Encourage Each Other!</h3></p>
+                        {/* <div className="supportmembers">
                             <div className="supportmembersleft">12000 members</div>
-                            <div className="supportmembersright">21 groups</div>
-                        </div>
-                        <h2>Which support group you would like to join?</h2>
+                            <div className="supportmembersright">{groupsData.length}+ groups</div>
+                        </div> */}
+                        {/* <h2>Which support group you would like to join?</h2>
                         <div className='categoryButtons'>
                             <button onClick={mentalButtonPressed} className={isMentalActive ? 'mentalButton' : ''}>Mental</button>
                             <button onClick={physicalButtonPressed} className={isPhysicalActive ? 'physicalButton' : ''}>Physical</button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className='communityBottom'>

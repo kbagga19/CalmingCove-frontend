@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EventsMainPage from '../EventsComponents/EventsMainPage';
 
-const GroupEvents = ({ admin }) => {
+const GroupEvents = ({ admin, member }) => {
   const [Admin, setAdmin] = useState(false);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const GroupEvents = ({ admin }) => {
 
   return (
     <div>
-      <EventsMainPage admin={Admin} />
+      <EventsMainPage admin={Admin} member={member}/>
     </div>
   );
 };

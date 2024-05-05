@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import './Events.css';
+import { uid } from 'uid';
+import { useParams } from 'react-router-dom';
+import axiosapi from '../../services/axiosapi';
 
 
-const AddNewEvent = ({onCancel}) => {
+const AddNewEvent = ({ onCancel }) => {
   const [eventData, setEventData] = useState({
+    EventID: '',
     title: '',
     description: '',
     date: '',
@@ -11,6 +15,8 @@ const AddNewEvent = ({onCancel}) => {
     hostedby: '',
     mode: '',
     location: '',
+    PaidorFree: '',
+    charges: '',
     link: '',
   });
 
@@ -20,8 +26,60 @@ const AddNewEvent = ({onCancel}) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEventData({ ...eventData, [name]: value });
+    setEventData({
+      ...eventData,
+      [name]: value,
+      "EventID": uid(16),
+    });
   };
+
+  const id = useParams();
+
+  const handleSubmit = async () => {
+    const response = await axiosapi.put(`/groups/addEvent/${id.id}`, {
+      "EventID": eventData.EventID,
+      "EventTitle": eventData.title,
+      "description": eventData.description,
+      "hostedby": eventData.hostedby,
+      "location": eventData.location,
+      "paidorfree": eventData.PaidorFree,
+      "mode": eventData.mode,
+      "charges": eventData.charges,
+      "link": eventData.link,
+      "date": eventData.date,
+      "time": eventData.time,
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+
+    if (response.status === 200) {
+      alert("Event added Successfully! You will be contacted by our team after review!");
+    } else {
+      alert("Error!");
+    }
+
+    //fetchData();
+
+    setEventData({
+      EventID: '',
+      title: '',
+      description: '',
+      date: '',
+      time: '',
+      hostedby: '',
+      mode: '',
+      location: '',
+      PaidorFree: '',
+      charges: '',
+      link: '',
+    })
+  }
+
 
   return (
     <div className="eventform-container">
@@ -99,6 +157,31 @@ const AddNewEvent = ({onCancel}) => {
         )}
 
         <div className="form-group">
+          <label>Free or Paid:</label>
+          <select
+            name="PaidorFree"
+            value={eventData.PaidorFree}
+            onChange={handleChange}
+          >
+            <option value="">Select:</option>
+            <option value="Paid">Paid</option>
+            <option value="Free">Free</option>
+          </select>
+        </div>
+
+        {eventData.PaidorFree === 'Paid' && (
+          <div className="form-group">
+            <label>Charges:</label>
+            <input
+              type="number"
+              name="charges"
+              value={eventData.charges}
+              onChange={handleChange}
+            />
+          </div>
+        )}
+
+        <div className="form-group">
           <label>Description:</label>
           <textarea
             name="description"
@@ -108,10 +191,10 @@ const AddNewEvent = ({onCancel}) => {
         </div>
 
         <div className="AddNewEventbtn">
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={handleSubmit}>Submit</button>
           <button onClick={handleCancelClick}>Cancel</button>
         </div>
-        
+
       </form>
     </div>
   );

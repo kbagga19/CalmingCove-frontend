@@ -8,7 +8,7 @@
     display: flex;
     justify-content: right;
     padding: 10px;
-    background: rgb(183, 233, 234);
+    background: #fdd9fd;
 }
 
 .startgrpbtn button{
@@ -37,7 +37,7 @@
     z-index: -1;
     border-radius: 100%;
     position: absolute;
-    background: rgb(183, 233, 234);
+    background: #fdd9fd;
     right: -200px;
     left: -200px;
     top: -200px;
@@ -47,15 +47,17 @@
 
 .communityTopLeft img {
     z-index: -0.5;
-    height: 70vh;
+    height: 40vh;
 }
 
 .communityTopRight {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 50%;
     gap: 20px;
+    line-height: 1.5;
 }
 
 .supportmembers{

@@ -1,12 +1,12 @@
 .grpdescbackcontainer {
-    background: #f9f8f4;
+    background: #fefefe;
     height: auto;
 }
 
 .descheader {
     justify-content: space-around;
     display: flex;
-    padding: 50px 20px 40px 20px;
+    padding: 30px;
     margin: auto;
 }
 
@@ -31,18 +31,17 @@
     justify-content: center;
 }
 
-.joinbutton button {
-    background-color: #EEF2FF;
+/* .joinbutton button {
+    background-color: #fddde6 ;
     border-radius: 8px;
-    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    color: #536DFE;
+    color: #F378C1;
     cursor: pointer;
-    border: 2px solid #536DFE;
+    border: 2px solid #F378C1;
     line-height: 1.5;
     padding: 10px 20px 10px 20px;
     font-size: 1rem;
     font-weight: 600;
-}
+} */
 
 .topicsSection {
     width: 80%;
@@ -66,7 +65,7 @@
 
 #topicbox {
     padding: 10px;
-    background-color: #dbedf0;
+    background-color: #e9f3ea;
     border-radius: 10px;
     width: auto;
 }
@@ -76,7 +75,7 @@
 
 .groupelements ul {
     display: flex;
-    background-color: #e9e9eb;
+    background-color: #fbf5ff;
     text-decoration: none;
     list-style: none;
     gap: 20px;
@@ -160,7 +159,7 @@
 }
 
 .newpostcontainer {
-    background-color: #dbedf0;
+    background-color: #f2e0ff;
     width: 80%;
     margin: 40px auto;
     padding: 20px;
@@ -186,7 +185,7 @@
 
 #postbutton button {
     padding: 10px 40px 10px 40px;
-    background-color: blue;
+    background-color: #4a0082;
     color: #fff;
     font-size: 1rem;
     border-radius: 10px;
@@ -414,7 +413,7 @@
     justify-content: center;
 }
 
-.joinchatbutton button, .writeReviewContainer button {
+.joinchatbutton button, .writeReviewContainer button, .joinbutton button{
     background-color: #ffe6ed;
     border-radius: 8px;
     box-shadow: rgb(255, 204, 218) 0 2px 4px, rgb(255, 204, 218) 0 7px 13px -3px, #ffb3c8 0 -3px 0 inset;

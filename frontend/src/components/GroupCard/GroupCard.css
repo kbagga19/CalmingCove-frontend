@@ -35,7 +35,7 @@
 }
 
 .cardbox{
-    background-color: aliceblue;
+    background-color: #f1e9f3;
     display: flex;
     align-items: center;
     padding: 8px;
@@ -54,7 +54,7 @@
 .groupcardbutton button{
     padding: 10px;
     border-radius: 10px;
-    background-color: blue;
+    background-color: #f378c1;
     border: none;
     color: #fff;
     cursor: pointer;
