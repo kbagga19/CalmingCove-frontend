@@ -3,6 +3,7 @@ import './GroupChatPage.css'
 import SockJS from 'sockjs-client'
 import Stomp from 'stompjs'
 import Navbar from '../../components/Navbar/Navbar';
+import Filter from 'bad-words';
 
 var stompClient = null;
 
@@ -15,6 +16,7 @@ const ChatApp = () => {
     connected: false,
     message: ''
   });
+  const filter = new Filter();
 
   const colors = [
     '#2196F3', '#32c787', '#00BCD4', '#ff5652',
@@ -27,7 +29,7 @@ const ChatApp = () => {
 
   //function to connect the user to the websocket server
   const connect = () => {
-    const socket = new SockJS('https://mentalhealth-api-xa6u.onrender.com/ws');
+    const socket = new SockJS('http://localhost:8080/ws');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, onConnected, onError);
   };
@@ -122,7 +124,7 @@ const ChatApp = () => {
                       <span>{message.sender}</span>
                     </>
                   )}
-                  <p>{message.content}</p>
+                  <p>{filter.clean(message.content != null ? message.content : "Welcome to the chat!")}</p>
                 </li>
               ))}
             </ul>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import CategoryCard from '../../components/CategoryCard/CategoryCard';
-import HealthImg from '../../assets/mentalHealthImg.png';
+import HealthImg from '../../assets/category_vector.png';
 import mentalData from '../../utils/healthData.js';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
@@ -73,11 +73,12 @@ function Categories() {
                         <img src={HealthImg} alt="" />
                     </div>
                     <div className='categoryTopRight'>
-                        <h1>Which category you fall under?</h1>
-                        <div className='categoryButtons'>
+                        <h1>Choose a Category</h1>
+                        {/* <div className='categoryButtons'>
                             <button onClick={mentalButtonPressed} className={isMentalActive ? 'mentalButton' : ''}>Mental</button>
                             <button onClick={physicalButtonPressed} className={isPhysicalActive ? 'physicalButton' : ''}>Physical</button>
-                        </div>
+                        </div> */}<i>
+                        "In the journey towards mental well-being, remember that self-care isn't indulgence; it's a necessity, a commitment to nurturing your inner self amidst life's turbulence. Embrace vulnerability, seek support, and let compassion be your guiding star through the maze of thoughts and emotions. Your journey towards healing begins with the courage to acknowledge your struggles and the resilience to persevere towards brighter days ahead."</i>
                     </div>
                 </div>
                 <div className='categoryBottom'>

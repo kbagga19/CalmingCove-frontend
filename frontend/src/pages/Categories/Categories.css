@@ -12,12 +12,12 @@
     gap: 10vw;
     align-items: center;
 }
-  
+
 .categoryTop::before {
     z-index: -1;
     border-radius: 100%;
     position: absolute;
-    background: rgb(183,233,234);
+    background: #e8d2f0;
     right: -200px;
     left: -200px;
     top: -200px;
@@ -27,13 +27,15 @@
 
 .categoryTopLeft img {
     z-index: -0.5;
-    height: 30vh;
+    height: 35vh;
 }
 
 .categoryTopRight {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 40%;
+    align-items: center;
 }
 
 .categoryBottom {
@@ -42,6 +44,7 @@
     gap: 20px;
     justify-content: center;
     padding-top: 3%;
+    background-color: #fefefe;
 }
 
 .categoryButtons {
