@@ -1,14 +1,10 @@
 from flask import Flask, after_this_request, jsonify, render_template
 import flask.json as json
 import numpy as np
-import DepressoDetecto
+import Depression
 
 app = Flask(__name__)
 # flask --app server run
-
-@app.route("/home", methods=['GET'])
-def get_home():
-    return render_template("DepressoWebHome.html")
 
 @app.route("/depdet/<data>", methods=['GET'])
 def get_js_data(data):
@@ -23,10 +19,6 @@ def get_js_data(data):
     pred_json = request_handler(values, model_num)
     pred_json = jsonify(pred_json)
     return pred_json
-
-@app.route("/depdet", methods=['GET'])
-def get_depdet():
-    return render_template("DepressoWebDepDet.html")
 
 
 def request_handler(values, model_num):
@@ -49,6 +41,6 @@ def request_handler(values, model_num):
     elif model_num == 7:
         model_type = 'dnn'
 
-    prediction = DepressoDetecto.predict(values, model_type)
+    prediction = Depression.predict(values, model_type)
     prediction = float(prediction)
     return {'prediction' : prediction}

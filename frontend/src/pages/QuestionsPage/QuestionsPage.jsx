@@ -100,10 +100,9 @@ function QuestionsPage() {
     };
 
     function finalResults(resul) {
-        axiosapi.post(`/extra/addDetails`, { 
-            "userId": localStorage.getItem('id'), 
-            "result": resul * 100 
-        }, {
+        axiosapi.put(`/extra/addResult/${localStorage.getItem('id')}`,
+            resul * 100 
+        , {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
