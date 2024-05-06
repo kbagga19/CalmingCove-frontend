@@ -54,6 +54,9 @@ function BlogsPage() {
           <div className={classes.newBlogbtn}>
             <button onClick={handleClick}><MdAdd size={30} /> New Blog</button>
           </div>
+          <div className={classes.blogpageheading}>
+          <h3>“Don’t focus on having a great blog. Focus on producing a blog that’s great for your readers.” – Brian Clark</h3>
+          </div>
           <div className={classes.blogsWrapper}>
             {blogs.map((blog) => (
               <BlogCard

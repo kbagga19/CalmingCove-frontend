@@ -33,7 +33,7 @@ function BlogsDetail() {
           },
         }
       );
-      const data = await response.json();
+      const data = await response.data;
       setblogdetails(data);
       if (data.img) {
         data.timestamp = formatTimestamp(data.timestamp);

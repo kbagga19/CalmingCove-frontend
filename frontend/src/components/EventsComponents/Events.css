@@ -8,16 +8,18 @@
 }
 
 .addEventbtn button {
-    background-color: #EEF2FF;
+    background-color: #7e4da2;
     border-radius: 8px;
-    box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px, rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    color: #536DFE;
+    color: #fff;
+    border: none;
     cursor: pointer;
-    border: 2px solid #536DFE;
     line-height: 1.5;
     padding: 10px 20px 10px 20px;
     font-size: 1rem;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

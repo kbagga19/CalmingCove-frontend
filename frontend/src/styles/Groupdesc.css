@@ -414,16 +414,18 @@
 }
 
 .joinchatbutton button, .writeReviewContainer button, .joinbutton button{
-    background-color: #ffe6ed;
+    background-color: #7e4da2;
     border-radius: 8px;
-    box-shadow: rgb(255, 204, 218) 0 2px 4px, rgb(255, 204, 218) 0 7px 13px -3px, #ffb3c8 0 -3px 0 inset;
-    color: #ff1154;
+    color: #fff;
+    border: none;
     cursor: pointer;
-    border: 2px solid #ff1154;
     line-height: 1.5;
     padding: 10px 20px 10px 20px;
     font-size: 1rem;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
