@@ -1,6 +1,6 @@
 .mood-tracker {
     grid-area: main;
-    background-color: #daeef563;
+    background-color: #fefefe;
     display: flex;
     flex-direction: column;
     padding: 3% 3%;
@@ -33,6 +33,7 @@
     border-radius: 25px;
     background-color: white;
     padding: 2%;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
 }
 
 .listMoodHistory li {

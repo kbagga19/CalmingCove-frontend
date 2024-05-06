@@ -27,7 +27,7 @@ function Sidebar({ openSidebar, sidebarHandler, componentHandler }) {
     <aside id={classes.sidebar} className={openSidebar ? classes["sidebar-responsive"] : ""}>
       <div className={classes["sidebar-title"]}>
         <div className={classes["sidebar-brand"]}>
-          <VolunteerActivismIcon className={classes["icon_header"]} /> BeatIT
+          <VolunteerActivismIcon className={classes["icon_header"]} /> CalmingCove
         </div>
         <span className={`${classes.icon} ${classes["close_icon"]}`} onClick={sidebarHandler}>
           <ArrowBackIosNewIcon />

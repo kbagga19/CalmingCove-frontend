@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
         paddingLeft: 50,
         justifyContent: 'center',
         width: '65%',
-        backgroundColor: '#00007D',
+        backgroundColor: '#e8d2f0',
         borderBottomRightRadius: 50
     },
     textPart: {
-        backgroundColor: '#242346',
+        backgroundColor: '#330f41',
         position: 'absolute',
         right: 0,
         top: 0,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         textAlign: 'center',
-        color: '#000477',
+        color: '#330f41',
         fontFamily: 'Helvetica-Bold'
     },
     question: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Helvetica-Bold',
     },
     name: {
-        color: '#000477',
+        color: '#330f41',
     }
 });
 
@@ -100,11 +100,11 @@ const TestPDF = ({ testData, result, onPdfGenerated }) => {
                     </View>
                     <View style={styles.textPart}>
                         <Text style={styles.headerText}>
-                            <Text style={styles.boldText}>MindWell</Text>
+                            <Text style={styles.boldText}>CalmingCove</Text>
                             {'\n'}
                             New Delhi, IN 110027
                             {'\n'}
-                            mindwell19@gmail.com
+                            calmingcove19@gmail.com
                             {'\n'}
                             123 456 7890
                         </Text>

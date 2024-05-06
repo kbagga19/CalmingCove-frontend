@@ -25,7 +25,7 @@
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #97d4e6;
+  background-color: #330f41;
   color: white;
   overflow-y: auto;
   transition: all 0.5s;

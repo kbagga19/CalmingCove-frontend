@@ -63,7 +63,7 @@ function Plan() {
                 } 
             })
             .then(async (res) => {
-                const data = await response.data;
+                const data = await res.data;
                 setTasksCompleted(data);
             })
         } catch (error) {

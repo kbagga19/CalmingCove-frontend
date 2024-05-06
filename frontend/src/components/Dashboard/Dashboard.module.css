@@ -2,7 +2,7 @@
   grid-area: main;
   overflow-y: auto;
   padding: 20px 30px;
-  background-color: #daeef563;
+  background-color: #fefefe;
 }
   
 .main-title {
@@ -20,7 +20,7 @@
 }
 
 .main-container .helloCard {
-  background-color: #c3e7f18c;
+  background-color: #e8d2f0;
   padding: 40px;
   border-radius: 25px;
   position: relative;
@@ -40,7 +40,7 @@
 }
 
 .main-container .helloCard p {
-  color: rgb(167, 166, 166);
+  /* color: rgb(167, 166, 166); */
   margin: 0;
 }
 

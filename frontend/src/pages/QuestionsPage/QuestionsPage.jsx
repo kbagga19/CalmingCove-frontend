@@ -4,7 +4,7 @@ import '../../styles/QuestionsPage.css';
 import QuestionPart from '../../components/QuestionsPart/QuestionPart.jsx';
 import image from '../../assets/quesBackground-2.png';
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import GeneralUserDetails from '../../components/GeneralUserDetails/GeneralUserDetails.jsx';
 import TestPDF from './TestPdf.jsx';
 import axiosapi from '../../services/axiosapi.js'
@@ -23,6 +23,7 @@ function QuestionsPage() {
     const [pdfSaved, setPdfSaved] = useState(false);
     const url = 'http://127.0.0.1:5000/depdet/';
     const id = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setLoading(true);
@@ -180,7 +181,7 @@ function QuestionsPage() {
                     {answerActive && (
                         <div id="result">
                             <h1>{result}</h1>
-                            <button onClick={() => { setAnswerActive(false); setQuestionsActive(false); setDetailsActive(true) }}>Continue<AiOutlineArrowRight /></button>
+                            <button onClick={() => { navigate("/dashboard") }}>Continue<AiOutlineArrowRight /></button>
                             {result != null && (
                             <TestPDF testData={testData} result={result} onPdfGenerated={savePDF} />
                             )

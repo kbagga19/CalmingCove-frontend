@@ -29,6 +29,7 @@
   justify-content: space-between;
   padding: 0 30px 0 30px;
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  z-index: 1;
 }
 
 .header .header-left {
@@ -52,7 +53,7 @@
 }
 
 .header .header-right {
-  color: #0cb4e7;
+  color: #330f41;
 }
 
 .header .header-right .icon {
@@ -66,7 +67,7 @@
 } 
 
 .header-right button {
-  background-color: #0cb4e7;
+  background-color: #330f41;
   color: white;
   font-size: 0.8rem;
   cursor: pointer;
