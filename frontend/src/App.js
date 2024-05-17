@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import Login from "./pages/Login/Login";
@@ -21,32 +21,34 @@ import Success from "./pages/PaymentSuccess/Success";
 
 import UploadBlog from "./components/BlogsPage/UploadBlog";
 import TherapistsPage from "./pages/TherapistsPage/TherapistsPage";
+import VideoSession from "./pages/VideoSession/VideoSession";
 
 function App() {
   return (
-    <div className="container">
+    <div className='container'>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/general" element={<GeneralUserDetails />}></Route>
-        <Route path="/blogs" element={<BlogsPage />}></Route>
-        <Route path="/resources" element={<WorksheetsPage />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/get-counselling" element={<TherapistsPage />}></Route>
+        <Route exact path='/' element={<HomePage />} />
+        <Route path='/categories' element={<Categories />} />
+        <Route path='/community' element={<Community />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/general' element={<GeneralUserDetails />}></Route>
+        <Route path='/blogs' element={<BlogsPage />}></Route>
+        <Route path='/resources' element={<WorksheetsPage />}></Route>
+        <Route path='/about' element={<About />}></Route>
+        <Route path='/get-counselling' element={<TherapistsPage />}></Route>
+        <Route path='/therapy-session' element={<VideoSession />}></Route>
 
         <Route element={<PrivateRoute />}>
-          <Route path="/questions/:id" element={<QuestionsPage />} />
-          <Route path="/dashboard" element={<UserDashboard />} />
-          <Route path="/groupdesc/:id" element={<Groupdesc />} />
-          <Route path="/startgroup" element={<StartGroupQuestionsPage />} />
-          <Route path="/chat" element={<GroupChatPage />}></Route>
-          <Route path="/uploadBlog" Component={UploadBlog}></Route>
-          <Route path="/blogs/:id" element={<BlogsDetail />}></Route>
-          <Route path="/payment/:id" element={<Stripe />}></Route>
-          <Route path="/success" element={<Success />}></Route>
+          <Route path='/questions/:id' element={<QuestionsPage />} />
+          <Route path='/dashboard' element={<UserDashboard />} />
+          <Route path='/groupdesc/:id' element={<Groupdesc />} />
+          <Route path='/startgroup' element={<StartGroupQuestionsPage />} />
+          <Route path='/chat' element={<GroupChatPage />}></Route>
+          <Route path='/uploadBlog' Component={UploadBlog}></Route>
+          <Route path='/blogs/:id' element={<BlogsDetail />}></Route>
+          <Route path='/payment/:id' element={<Stripe />}></Route>
+          <Route path='/success' element={<Success />}></Route>
         </Route>
       </Routes>
     </div>
