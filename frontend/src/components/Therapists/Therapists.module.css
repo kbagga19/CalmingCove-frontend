@@ -33,7 +33,7 @@
   line-height: 24px;
   width: 100%;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
-  background-color: #e7f5f7;
+  background-color: #f1e9f3;
 }
 
 .therapistCard .therapistImg img {
@@ -78,10 +78,11 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 
 .therapistsWrapper {
-  background-color: #e7f5f7;
+  background-color: #f1e9f3;
   color: black;
   padding: 50px 60px;
   background-image: url("https://www.transparenttextures.com/patterns/ag-square.png");
@@ -95,6 +96,7 @@
 .therapistCard .details {
   text-align: center;
   margin-bottom: 30px;
+  background-color: #fff;
 }
 
 .therapistCard .details h4 {

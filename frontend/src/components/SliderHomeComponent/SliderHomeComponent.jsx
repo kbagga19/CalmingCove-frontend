@@ -61,7 +61,6 @@ const SliderHomeComponent = () => {
           end: () => '+=' + 1500,
         },
       });
-      // console.log(containerRef.current.offsetWidth);
     }
   }, []);
 
