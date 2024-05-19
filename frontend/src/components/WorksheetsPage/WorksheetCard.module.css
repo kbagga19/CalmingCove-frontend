@@ -1,6 +1,5 @@
 .banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../../assets/worksheets-banner.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/worksheets-banner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 330px;
@@ -25,7 +24,7 @@
 
 .bodyText {
   text-align: center;
-  background-color: rgba(214, 241, 245, 0.534);
+  background-color: lavender;
   padding-bottom: 40px;
 }
 
@@ -41,7 +40,7 @@
 } */
 
 .bodyText h3 {
-  color: #026fff;
+  color: #c47bde;
   text-align: center;
   margin: 30px;
 }
@@ -57,7 +56,7 @@
 }
 
 .worksheetsWrapper {
-  background-color: rgba(214, 241, 245, 0.534);
+  background-color: lavender;
   padding: 0px 60px 60px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -95,7 +94,7 @@
 
 .button {
   width: 70%;
-  background-color: rgb(43, 43, 236);
+  background-color: #c47bde;
   margin: auto;
   margin-top: 20px;
   display: flex;
