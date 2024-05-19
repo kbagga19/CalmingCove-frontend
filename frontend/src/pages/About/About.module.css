@@ -1,6 +1,5 @@
 .banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../../assets/hero-banner.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/hero-banner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 330px;
@@ -27,12 +26,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../../assets/pattern-05.png"),
-    url("../../assets/pattern-06.png");
+  background-image: url("../../assets/pattern-05.png"), url("../../assets/pattern-06.png");
   background-position: left bottom, right top;
   background-repeat: no-repeat, no-repeat;
   background-size: auto, auto;
-  background-color: rgba(214, 241, 245, 0.534);
+  background-color: lavender;
 }
 
 .aboutDiv .content {
@@ -45,7 +43,7 @@
 
 .aboutDiv .content h4 {
   text-transform: uppercase;
-  color: #026fff;
+  color: #c47bde;
   text-align: center;
   letter-spacing: 2.7px;
   margin-bottom: 20px;
