@@ -9,8 +9,7 @@
 }
 
 .banner {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../../assets/therapists-banner.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../assets/therapists-banner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 330px;
@@ -115,6 +114,254 @@
   font-size: 18px;
   letter-spacing: 1.5px;
   padding-bottom: 10px;
+}
+
+.therapistDetailsWrapper {
+  background-color: #e7f5f7;
+  color: black;
+  /* padding: 50px 60px; */
+}
+
+.therapistBanner {
+  padding: 50px;
+  background: linear-gradient(51deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
+  /* min-height: 600px; */
+}
+
+.detailsView {
+  /* width: 1200px; */
+  background-color: #fff;
+  border-radius: 10px;
+  /* margin-top: -530px; */
+  /* padding-bottom: 70px; */
+}
+
+.basicDetails {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px hsla(210, 8%, 62%, 0.2);
+}
+
+.detailsLeft {
+  width: 50%;
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #330f41;
+  display: flex;
+  justify-content: space-around;
+}
+
+.leftAbout img {
+  transform: rotate(180deg);
+  display: flex;
+  width: 60px;
+  /* margin-bottom: 85px; */
+  opacity: 0.2;
+  position: absolute;
+  left: -75px;
+  top: -10px;
+}
+
+.leftAbout .count {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.leftAbout p {
+  margin-bottom: 0;
+}
+
+.leftAbout {
+  /* margin-top: 5px; */
+  margin: auto;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.leftAbout span {
+  font-size: 35px;
+  font-weight: 700;
+  margin: 0;
+  color: lavender;
+}
+
+.getPlatinum {
+  padding: 30px 8%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  column-gap: 20px;
+  background: linear-gradient(51deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
+
+  /* column-gap: 170px; */
+}
+
+.aboutPlan {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutPlan h1 {
+  font-size: 38px;
+}
+
+.statInfo {
+  padding: 50px 0;
+  background-color: #d095e5;
+}
+
+.statContainer {
+  width: 100%;
+  margin: auto;
+}
+
+.statMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat1 {
+  width: 23%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.stat1 span {
+  font-size: 38px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat1 h3 {
+  font-size: 45px;
+  color: #fff;
+}
+
+.stat1 p {
+  font-size: 16px;
+  color: #fff;
+}
+
+.reviewSection {
+  background: linear-gradient(51deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
+  padding: 50px 0;
+  width: 100%;
+}
+
+.reviewContainer {
+  width: 100%;
+  padding: 0 40px;
+  margin: auto;
+}
+
+.reviewContainer h3 {
+  text-align: center;
+  font-size: 38px;
+}
+
+.reviewScroller {
+  width: 100%;
+  margin-top: 30px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-bottom: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #330f41;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+.reviewsMain {
+  width: 300%;
+  display: flex;
+  gap: 20px;
+  /* justify-content: space-between; */
+}
+
+.reviewCard {
+  width: 10%;
+  min-height: 260px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #cccccc59;
+  margin-bottom: 10px;
+}
+
+.reviewerImg {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewerImg img {
+  height: 50px;
+  border-radius: 50%;
+}
+
+.headerData {
+  width: 85%;
+  padding: 15px;
+}
+
+.headerData h5 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.reviewStars {
+  color: #ffcf0d;
+  display: flex;
+  align-items: center;
+}
+
+.reviewStars p {
+  font-size: 10px !important;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.reviewCard p {
+  font-size: 14px;
+  text-align: justify;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 800px) {
