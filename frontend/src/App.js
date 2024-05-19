@@ -21,7 +21,7 @@ import Success from "./pages/PaymentSuccess/Success";
 
 import UploadBlog from "./components/BlogsPage/UploadBlog";
 import TherapistsPage from "./pages/TherapistsPage/TherapistsPage";
-import VideoSession from "./pages/VideoSession/VideoSession";
+import TherapistDetails from "./pages/TherapistsPage/TherapistDetails";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
         <Route path='/resources' element={<WorksheetsPage />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/get-counselling' element={<TherapistsPage />}></Route>
-        <Route path='/therapy-session' element={<VideoSession />}></Route>
+        <Route path='/therapist-details' element={<TherapistDetails />}></Route>
 
         <Route element={<PrivateRoute />}>
           <Route path='/questions/:id' element={<QuestionsPage />} />
