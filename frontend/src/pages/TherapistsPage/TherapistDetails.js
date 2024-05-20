@@ -11,7 +11,8 @@ import reviewerPfp from "../../assets/reviewer.jpg";
 import axiosapi from '../../services/axiosapi';
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
-
+import emailjs from '@emailjs/browser';
+import swal from "sweetalert";
 
 const reviewData = [
   {
@@ -95,6 +96,8 @@ function TherapistDetails() {
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const id = useParams();
 
+  const meetLink = `http://127.0.0.1:5500/index.html?room=${id.id}`;
+
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       axiosapi.get(`/therapists/${id.id}`, {
@@ -113,10 +116,6 @@ function TherapistDetails() {
         })
     }
   }, []);
-
-  // useEffect(() => {
-
-  // }, []);
 
   const fetchData = async () => {
     try {
@@ -158,6 +157,17 @@ function TherapistDetails() {
   async function handleBook() {
     if (selectedAppointment) {
       console.log('Booked appointment:', selectedAppointment.timestamp);
+
+      const formattedDate = formatDate(selectedAppointment.timestamp);
+
+      emailjs.send("service_wakzvca","template_g7q7yco",{
+        user_name: localStorage.getItem('name'),
+        timestamp: formattedDate,
+        therapist_name: therapistDetails.name,
+        meet_link: meetLink,
+        user_email: localStorage.getItem('email'),
+      }, "W6vv5FFrgOHL5ZovX");
+
       const response = await axiosapi.put(`/therapists/updateAppointment/${id.id}`,
         selectedAppointment.timestamp,
         {
@@ -169,7 +179,7 @@ function TherapistDetails() {
           }
         })
       if (response.status === 200) {
-        alert('Appointment booked successfully');
+        swal("Appointment Booked Successfully!", "You will recieve the meeting details along with the link on your registered email id. Contact us at CalimgCove@gmail.com", "success");
       }
       setSelectedAppointment(null);
     } else {
@@ -223,11 +233,11 @@ function TherapistDetails() {
               <div className={classes.detailsRight}>
                 <h2>{therapistDetails.name}</h2>
                 <div className={classes.therapistRating}>
-                  <FaStar color='#faaf00'/>
-                  <FaStar color='#faaf00'/>
-                  <FaStar color='#faaf00'/>
-                  <FaStar color='#faaf00'/>
-                  <FaStarHalfAlt color='#faaf00'/>
+                  <FaStar color='#faaf00' />
+                  <FaStar color='#faaf00' />
+                  <FaStar color='#faaf00' />
+                  <FaStar color='#faaf00' />
+                  <FaStarHalfAlt color='#faaf00' />
                 </div>
                 <h3>{therapistDetails.designation}</h3>
                 <p>{therapistDetails.details}</p>
