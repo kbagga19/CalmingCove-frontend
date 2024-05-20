@@ -23,6 +23,16 @@
   text-align: center;
 }
 
+.TherapistCardButton button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f378c1;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
 .bodyText p {
   padding-top: 40px;
   padding-left: 100px;

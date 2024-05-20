@@ -44,6 +44,7 @@ const TherapistsPage = () => {
         'Content-Type': 'application/json',
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
       },
     })
       .then((res) => {
@@ -94,7 +95,7 @@ const TherapistsPage = () => {
       <div className={classes.therapistsWrapper}>
         {therapistData.map((data) => (
           <TherapistsCard
-            img={data.img}
+            img={`data:image/png;base64,${data.image.data}`}
             name={data.name}
             designation={data.designation}
             details={data.details}

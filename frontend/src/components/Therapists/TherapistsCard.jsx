@@ -18,7 +18,7 @@ function TherapistsCard({ img, name, designation, details, id }) {
         <h6>{designation}</h6>
         <p>{details}</p>
         {/* <h5>Room name: CalmingCove Therapy Support</h5> */}
-        <Link className="TherapistCardButton" to={`/therapist-details/${id}`}>
+        <Link className={classes.TherapistCardButton} to={`/therapist-details/${id}`}>
         <button onClick={handleButtonClick}>View Profile</button>
         </Link>
       </div>

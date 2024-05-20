@@ -92,6 +92,7 @@ const reviewData = [
 function TherapistDetails() {
   const [therapistDetails, setTherapistsDetails] = useState([]);
   const [Appointments, setAppointments] = useState([]);
+  const [therapistImage, setTherapistImage] = useState(null);
   const [BookAppointmentButton, setBookAppointmentButton] = useState(false);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const id = useParams();
@@ -113,6 +114,10 @@ function TherapistDetails() {
           const data = res.data;
           console.log(data);
           setTherapistsDetails(data);
+          if (data.image) {
+            const imageUrl = `data:image/png;base64,${data.image.data}`;
+            setTherapistImage(imageUrl);
+          }
         })
     }
   }, []);
@@ -168,6 +173,7 @@ function TherapistDetails() {
         user_email: localStorage.getItem('email'),
       }, "W6vv5FFrgOHL5ZovX");
 
+      
       const response = await axiosapi.put(`/therapists/updateAppointment/${id.id}`,
         selectedAppointment.timestamp,
         {
@@ -180,6 +186,7 @@ function TherapistDetails() {
         })
       if (response.status === 200) {
         swal("Appointment Booked Successfully!", "You will recieve the meeting details along with the link on your registered email id. Contact us at CalimgCove@gmail.com", "success");
+        fetchData();
       }
       setSelectedAppointment(null);
     } else {
@@ -217,7 +224,7 @@ function TherapistDetails() {
           <div className={classes.detailsView}>
             <div className={classes.basicDetails}>
               <div className={classes.detailsLeft}>
-                <img src={therapist1} alt="Therapist 1" className={classes.therapistcircleimg} />
+                <img src={therapistImage} alt="Therapist 1" className={classes.therapistcircleimg} />
                 <div className={classes.leftAbout}>
                   <img src='https://www.betterlyf.com/images/quote.svg' alt='quotes' />
 
