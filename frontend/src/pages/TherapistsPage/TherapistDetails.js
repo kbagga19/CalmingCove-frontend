@@ -163,15 +163,6 @@ function TherapistDetails() {
       console.log('Booked appointment:', selectedAppointment.timestamp);
 
       const formattedDate = formatDate(selectedAppointment.timestamp);
-
-      emailjs.send("service_wakzvca","template_g7q7yco",{
-        user_name: localStorage.getItem('name'),
-        timestamp: formattedDate,
-        therapist_name: therapistDetails.name,
-        meet_link: `http://127.0.0.1:5500/index.html?room=${uid(16)}`,
-        user_email: "kaurrajpreet2018@gmail.com",
-      }, "W6vv5FFrgOHL5ZovX");
-
       
       const response = await axiosapi.put(`/therapists/updateAppointment/${id.id}`,
         selectedAppointment.timestamp,
@@ -185,6 +176,13 @@ function TherapistDetails() {
         })
       if (response.status === 200) {
         swal("Appointment Booked Successfully!", "You will recieve the meeting details along with the link on your registered email id. Contact us at CalimgCove@gmail.com", "success");
+        emailjs.send("service_wakzvca","template_g7q7yco",{
+          user_name: localStorage.getItem('name'),
+          timestamp: formattedDate,
+          therapist_name: therapistDetails.name,
+          meet_link: `http://127.0.0.1:5500/index.html?room=${uid(16)}`,
+          user_email: localStorage.getItem("email"),
+        }, "W6vv5FFrgOHL5ZovX");
         fetchData();
       }
       setSelectedAppointment(null);
@@ -247,9 +245,14 @@ function TherapistDetails() {
                 </div>
                 <h3>{therapistDetails.designation}</h3>
                 <p>{therapistDetails.details}</p>
-                <div className={classes.detailsRightbtn}>
-                  <button onClick={() => { setBookAppointmentButton(!BookAppointmentButton) }}>Book an Appointment</button>
-                </div>
+                {localStorage.getItem("subscription") !== 'Platinum' ? (
+                  <p>Get our Platinum Subcription plan to book an appointment</p>
+                ) : (
+                  <div className={classes.detailsRightbtn}>
+                    <button onClick={() => { setBookAppointmentButton(!BookAppointmentButton) }}>Book an Appointment</button>
+                  </div>
+                )
+                }
               </div>
             </div>
           </div>
@@ -382,25 +385,25 @@ function TherapistDetails() {
           <div className={classes.statContainer}>
             <div className={classes.statMain}>
               <div className={classes.stat1}>
-                <span>icon</span>
+                {/* <span>icon</span> */}
                 <h3>2,000+</h3>
                 <p>Sessions Delivered</p>
               </div>
 
               <div className={classes.stat1}>
-                <span>icon</span>
+                {/* <span>icon</span> */}
                 <h3>70%</h3>
                 <p>Repeat Clients</p>
               </div>
 
               <div className={classes.stat1}>
-                <span>icon</span>
+                {/* <span>icon</span> */}
                 <h3>100+</h3>
                 <p>Corporate Partners</p>
               </div>
 
               <div className={classes.stat1}>
-                <span>icon</span>
+                {/* <span>icon</span> */}
                 <h3>100%</h3>
                 <p>Confidential</p>
               </div>
