@@ -37,7 +37,7 @@ function App() {
         <Route path='/resources' element={<WorksheetsPage />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/get-counselling' element={<TherapistsPage />}></Route>
-        <Route path='/therapist-details' element={<TherapistDetails />}></Route>
+        
 
         <Route element={<PrivateRoute />}>
           <Route path='/questions/:id' element={<QuestionsPage />} />
@@ -49,6 +49,7 @@ function App() {
           <Route path='/blogs/:id' element={<BlogsDetail />}></Route>
           <Route path='/payment/:id' element={<Stripe />}></Route>
           <Route path='/success' element={<Success />}></Route>
+          <Route path='/therapist-details/:id' element={<TherapistDetails />}></Route>
         </Route>
       </Routes>
     </div>

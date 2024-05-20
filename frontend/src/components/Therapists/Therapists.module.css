@@ -120,13 +120,14 @@
 
 .therapistDetailsWrapper {
   background-color: #e7f5f7;
+  background: linear-gradient(90deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
   color: black;
   /* padding: 50px 60px; */
 }
 
 .therapistBanner {
   padding: 50px;
-  background: linear-gradient(51deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
+  background: linear-gradient(90deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
   /* min-height: 600px; */
 }
 
@@ -154,7 +155,39 @@
   border-top-left-radius: 10px;
   background-color: #330f41;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
+}
+
+.detailsRight {
+  width: 50%;
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.detailsRightbtn{
+  display: flex;
+  justify-content: center;
+}
+
+.detailsRightbtn button, .schedulebtn button{
+  background-color: #b0ef8f;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.therapistRating{
+  display: flex;
+  gap: 3px;
+  font-size: 1.2rem;
 }
 
 .leftAbout img {
@@ -166,6 +199,13 @@
   position: absolute;
   left: -75px;
   top: -10px;
+}
+
+.therapistcircleimg{
+  width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid white;
 }
 
 .leftAbout .count {
@@ -203,7 +243,7 @@
   grid-template-columns: 2fr 1fr;
 
   column-gap: 20px;
-  background: linear-gradient(51deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
+  background: linear-gradient(90deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
 
   /* column-gap: 170px; */
 }
@@ -261,7 +301,7 @@
 }
 
 .reviewSection {
-  background: linear-gradient(51deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
+  background: linear-gradient(90deg, rgb(210, 255, 252) -1%, rgb(255, 233, 226) 101%);
   padding: 50px 0;
   width: 100%;
 }
@@ -364,6 +404,51 @@
   font-size: 14px;
   text-align: justify;
   font-weight: 500;
+}
+
+/* Appointments CSS */
+
+.AppointmentSection{
+  height: auto;
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  border-radius: 20px;
+  padding: 30px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.appointmentContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  /* padding-top: 20px; */
+}
+
+.appointmentBox{
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px
+}
+
+.appointmentBox.selected {
+  border: 2px solid blue; /* Highlight the selected box */
+}
+
+.note{
+  font-size: 0.9rem;
+  color: grey;
+}
+
+.schedulebtn{
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 800px) {

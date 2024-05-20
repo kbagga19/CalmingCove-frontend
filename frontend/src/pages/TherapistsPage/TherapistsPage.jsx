@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer.jsx";
 
@@ -7,6 +7,8 @@ import classes from "../../components/Therapists/Therapists.module.css";
 import therapist1 from "../../assets/TherapistsImages/therapist1.jpg";
 import therapist2 from "../../assets/TherapistsImages/therapist2.jpg";
 import therapist3 from "../../assets/TherapistsImages/therapist3.jpg";
+
+import axiosapi from '../../services/axiosapi.js';
 
 const DATA = [
   {
@@ -31,7 +33,30 @@ const DATA = [
       "Rachel, with 8 years of experience, specializes in stress management and mindfulness practices, offering holistic support to individuals seeking personal growth, resilience, and emotional well-being.",
   },
 ];
-function TherapistsPage() {
+
+const TherapistsPage = () => {
+  const [therapistData, setTherapistData] = useState([]);
+
+  useEffect(() => {
+    axiosapi.get('/therapists/', {
+      crossDomain: true,
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    })
+      .then((res) => {
+        const data = res.data;
+        console.log(data);
+        setTherapistData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+
   return (
     <>
       <Navbar />
@@ -67,12 +92,13 @@ function TherapistsPage() {
         </p>
       </div>
       <div className={classes.therapistsWrapper}>
-        {DATA.map((data) => (
+        {therapistData.map((data) => (
           <TherapistsCard
             img={data.img}
             name={data.name}
             designation={data.designation}
             details={data.details}
+            id={data._id}
           />
         ))}
       </div>

@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer.jsx";
 import classes from "../../components/Therapists/Therapists.module.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import checkmark from "../../assets/check-mark.png";
 import { FaArrowRight } from "react-icons/fa";
 import ReviewsCard from "../../components/Therapists/ReviewsCard.js";
 import therapist1 from "../../assets/TherapistsImages/therapist1.jpg";
 import reviewerPfp from "../../assets/reviewer.jpg";
+import axiosapi from '../../services/axiosapi';
+import { FaStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
+
 
 const reviewData = [
   {
@@ -85,6 +89,116 @@ const reviewData = [
 ];
 
 function TherapistDetails() {
+  const [therapistDetails, setTherapistsDetails] = useState([]);
+  const [Appointments, setAppointments] = useState([]);
+  const [BookAppointmentButton, setBookAppointmentButton] = useState(false);
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
+  const id = useParams();
+
+  useEffect(() => {
+    if (localStorage.getItem('token') !== null) {
+      axiosapi.get(`/therapists/${id.id}`, {
+        crossDomain: true,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+      })
+        .then((res) => {
+          const data = res.data;
+          console.log(data);
+          setTherapistsDetails(data);
+        })
+    }
+  }, []);
+
+  // useEffect(() => {
+
+  // }, []);
+
+  const fetchData = async () => {
+    try {
+      if (localStorage.getItem('token') !== null) {
+        axiosapi.get(`/therapists/getAppointments/${id.id}`, {
+          crossDomain: true,
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          },
+        })
+          .then((res) => {
+            const data = res.data;
+            console.log(data);
+            setAppointments(data);
+          })
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+
+
+  const handleSelect = (appointment) => {
+    if (appointment.availability) {
+      setSelectedAppointment(appointment);
+    } else {
+      //alert('This appointment is not available.');
+    }
+  };
+
+  async function handleBook() {
+    if (selectedAppointment) {
+      console.log('Booked appointment:', selectedAppointment.timestamp);
+      const response = await axiosapi.put(`/therapists/updateAppointment/${id.id}`,
+        selectedAppointment.timestamp,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          }
+        })
+      if (response.status === 200) {
+        alert('Appointment booked successfully');
+      }
+      setSelectedAppointment(null);
+    } else {
+      alert('Please select an appointment to book.');
+    }
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    // Get day of the week
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = days[date.getDay()];
+
+    // Get month name
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthIndex = date.getMonth();
+    const monthName = months[monthIndex];
+
+    // Get time
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    return `${monthName} ${date.getDate()}, ${dayOfWeek}, ${formattedHours}:${formattedMinutes} ${ampm}`;
+  };
+
   return (
     <>
       <Navbar />
@@ -93,6 +207,7 @@ function TherapistDetails() {
           <div className={classes.detailsView}>
             <div className={classes.basicDetails}>
               <div className={classes.detailsLeft}>
+                <img src={therapist1} alt="Therapist 1" className={classes.therapistcircleimg} />
                 <div className={classes.leftAbout}>
                   <img src='https://www.betterlyf.com/images/quote.svg' alt='quotes' />
 
@@ -105,9 +220,57 @@ function TherapistDetails() {
                   </div>
                 </div>
               </div>
+              <div className={classes.detailsRight}>
+                <h2>{therapistDetails.name}</h2>
+                <div className={classes.therapistRating}>
+                  <FaStar color='#faaf00'/>
+                  <FaStar color='#faaf00'/>
+                  <FaStar color='#faaf00'/>
+                  <FaStar color='#faaf00'/>
+                  <FaStarHalfAlt color='#faaf00'/>
+                </div>
+                <h3>{therapistDetails.designation}</h3>
+                <p>{therapistDetails.details}</p>
+                <div className={classes.detailsRightbtn}>
+                  <button onClick={() => { setBookAppointmentButton(!BookAppointmentButton) }}>Book an Appointment</button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
+
+        {BookAppointmentButton ? (
+          <section className={classes.AppointmentSection}>
+            <h1>Select A Slot</h1>
+            <div className={classes.appointmentContainer}>
+              {Appointments.map((item) => (
+                <div
+                  className={classes.appointmentBox}
+                  key={item.id}
+                  onClick={() => handleSelect(item)}
+                  style={{
+                    border: item.availability ? (selectedAppointment === item ? '2px solid blue' : '2px solid black') : '2px solid grey',
+                    color: item.availability ? (selectedAppointment === item ? 'blue' : 'black') : 'grey',
+                    cursor: item.availability ? 'pointer' : 'not-allowed',
+                  }}
+                >
+                  <span>{formatDate(item.timestamp)}</span>
+                </div>
+              ))}
+            </div>
+            <div className={classes.note}>
+              <p>Please note: If all the appointments are already filled, kindly check again on Sunday to book your slots for next week :)</p>
+            </div>
+            <div className={classes.schedulebtn}>
+              <button onClick={handleBook}>Schedule Meeting</button>
+            </div>
+
+          </section>
+        ) : (
+          <></>
+        )}
+
+
 
         <section className={classes.getPlatinum}>
           <div className={classes.aboutPlan}>
