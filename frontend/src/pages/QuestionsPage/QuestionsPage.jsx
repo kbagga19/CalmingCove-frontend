@@ -93,8 +93,8 @@ function QuestionsPage() {
                 .then(response => response.json());
 
             displayResults(resp.prediction, currentModel);
-            finalResults(resp.prediction);
             localStorage.setItem("result", resp.prediction * 100)
+            finalResults(resp.prediction);
         } catch (err) {
             displayResults(-1, currentModel);
         }

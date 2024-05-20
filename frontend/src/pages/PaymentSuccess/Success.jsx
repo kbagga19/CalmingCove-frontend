@@ -79,10 +79,10 @@ const Success = () => {
           <p>Customer Support team</p>
 
 
-          <Link to={'/'}>
+          <Link to={'/dashboard'}>
             <div className='gotohomebtn'>
               <button type="button">
-                Go to Home
+                Go to Dashboard
               </button>
             </div>
           </Link>

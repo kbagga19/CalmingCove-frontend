@@ -78,6 +78,7 @@ function Plan() {
         setTimeout(() => {
             setLoading(false);
         }, 1000);
+        console.log(localStorage.getItem("result"))
     }, [])
 
     const handleChange = (index) => {
@@ -108,28 +109,32 @@ function Plan() {
                 <div className="spinner"></div>
             </div>
         ) : (
-            <div className='mainPlanPage'>
+            <div className='mainPlanPage'>  
                 <h3>Your This Week's Plan</h3>
-                <Box className="planBox" sx={{ width: '100%' }}>
-                    <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid className='planBoxItem' item xs={6}>
-                            <p><strong>Task</strong></p>
-                        </Grid>
-                        <Grid className='planBoxItem' item xs={6}>
-                            <p><strong>Completed</strong></p>
-                        </Grid>
-                        </Grid>
-                    {planDetail.length > 0 && planDetail.map((ele, idx) => (
-                        <Grid key = {idx} container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid className='planBoxItem' item xs={6}>
-                            <p>{ele}</p>
-                        </Grid>
-                        <Grid key={idx} className='planBoxItem' item xs={6}>
-                            <input type="checkbox" style={{transform: 'scale(1.2)'}} checked={tasksCompleted[idx]} onChange={() => handleChange(idx)}/>
-                        </Grid>
-                        </Grid>
-                    ))}
-                </Box>
+                {localStorage.getItem("result") == 'null' ? (
+                    <p>Take a test first</p>
+                ) : (
+                    <Box className="planBox" sx={{ width: '100%' }}>
+                        <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                            <Grid className='planBoxItem' item xs={6}>
+                                <p><strong>Task</strong></p>
+                            </Grid>
+                            <Grid className='planBoxItem' item xs={6}>
+                                <p><strong>Completed</strong></p>
+                            </Grid>
+                            </Grid>
+                        {planDetail.length > 0 && planDetail.map((ele, idx) => (
+                            <Grid key = {idx} container rowSpacing={4} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                            <Grid className='planBoxItem' item xs={6}>
+                                <p>{ele}</p>
+                            </Grid>
+                            <Grid key={idx} className='planBoxItem' item xs={6}>
+                                <input type="checkbox" style={{transform: 'scale(1.2)'}} checked={tasksCompleted[idx]} onChange={() => handleChange(idx)}/>
+                            </Grid>
+                            </Grid>
+                        ))}
+                    </Box>
+                )}
             </div>
         )}
         </>
