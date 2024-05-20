@@ -13,6 +13,7 @@ import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
 import swal from "sweetalert";
+import {uid} from 'uid';
 
 const reviewData = [
   {
@@ -97,8 +98,6 @@ function TherapistDetails() {
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const id = useParams();
 
-  const meetLink = `http://127.0.0.1:5500/index.html?room=${id.id}`;
-
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
       axiosapi.get(`/therapists/${id.id}`, {
@@ -169,8 +168,8 @@ function TherapistDetails() {
         user_name: localStorage.getItem('name'),
         timestamp: formattedDate,
         therapist_name: therapistDetails.name,
-        meet_link: meetLink,
-        user_email: localStorage.getItem('email'),
+        meet_link: `http://127.0.0.1:5500/index.html?room=${uid(16)}`,
+        user_email: "kaurrajpreet2018@gmail.com",
       }, "W6vv5FFrgOHL5ZovX");
 
       
